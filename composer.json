@@ -1,0 +1,31 @@
+{
+	"name": "mediawiki/deletepagesforgood-extension",
+	"type": "mediawiki-extension",
+	"description": "A extension for mediawiki",
+	"keywords": [
+		"wiki",
+		"MediaWiki",
+		"extension"
+	],
+	"homepage": "https://www.mediawiki.org/wiki/Extensions:DeletePagesForGood",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Paladox"
+		}
+	],
+	"support": {
+		"wiki": "https://www.mediawiki.org/wiki/Extension:DeletePagesForGood",
+		"forum": "https://www.mediawiki.org/wiki/Extension_talk:DeletePagesForGood",
+		"source": "https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FDeletePagesForGood",
+		"irc": "irc://irc.freenode.org/mediawiki"
+	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "0.9.*"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor"
+		]
+	}
+}
