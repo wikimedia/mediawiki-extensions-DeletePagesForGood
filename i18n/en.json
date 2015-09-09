@@ -2,7 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
-	"extensionname-deletepagesforgood": "PermanentlyDeletePages",
+	"extensionname-deletepagesforgood": "DeletePagesForGood",
 	"deletepagesforgood-desc": "Allows users to delete pages permanetly from database by adding a new delete tab to each page.",
 	"deletepagesforgood-delete_permanently": "Delete page permanently",
 	"deletepagesforgood-del_impossible": "This page can not be deleted permanently",
