@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"extensionname-deletepagesforgood": "{{optional}}",
+	"deletepagesforgood-dec": "{{desc|name=PermanentlyDeletePages|url=https://www.mediawiki.org/wiki/Extension:PermanentlyDeletePages}}",
+	"deletepagesforgood-delete_permanently": "Delete page permanently This message is under the action menu and the text is Delete page permanently.",
+	"deletepagesforgood-del_impossible": "This messages says that there is an error and that the page cannot be deleted permanently.",
+	"deletepagesforgood-ask_deletion": "This message is givin you a warrning before you continue and says are you sure you want to continue deleting this page permanently.",
+	"deletepagesforgood-yes": "This is a button with yes as text.",
+	"deletepagesforgood-del_done": "This message says that the page was successfully deleted permanently.",
+	"right-deleteperm": "{{doc-right|deleteperm}}",
+	"action-deleteperm": "{{doc-action|deleteperm}}""
+}

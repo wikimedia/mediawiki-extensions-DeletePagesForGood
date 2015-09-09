@@ -1,0 +1,51 @@
+{
+	"name": "DeletePagesForGood",
+	"namemsg": "extensionname-deletepagesforGood",
+	"version": "1.0",
+	"author": "Paladox",
+	"url": "https://www.mediawiki.org/wiki/Extension:DeletePagesForGood",
+	"descriptionmsg": "deletepagesforgood-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"GroupPermissions": {
+		"*": {
+			"deleteperm": false
+		},
+		"user": {
+			"deleteperm": false
+		},
+		"bureaucrat": {
+			"deleteperm": false
+		},
+		"sysop": {
+			"deleteperm": true
+		}
+	},
+	"ExtensionFunctions": [
+		"DeletePagesForGoodHooks::onDeletesPagesPermanently"
+	],
+	"MessagesDirs": {
+		"DeletePagesForGood": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"DeletePagesForGoodHooks": "DeletePagesForGood.hooks.php",
+		"DeletePagesForGood": "DeletePagesForGood.class.php"
+	},
+	"config": {
+		"DeletePagesForGoodNamespaces": {
+			"0": true,
+			"1": true,
+			"2": true,
+			"3": true,
+			"6": true,
+			"7": true,
+			"14": true,
+			"15": true,
+			"10": true,
+			"11": true
+		}
+	},
+	"manifest_version": 1
+}
