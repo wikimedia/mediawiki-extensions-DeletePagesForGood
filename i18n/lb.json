@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"deletepagesforgood-delete_permanently": "Säite permanent läschen",
+	"deletepagesforgood-del_impossible": "Dës Säit kann net permanent geläscht ginn",
+	"deletepagesforgood-yes": "Jo",
+	"deletepagesforgood-del_done": "D'Säit gouf permanent geläscht.",
+	"right-deleteperm": "Säite permanent läschen",
+	"action-deleteperm": "Säite permanent läschen"
+}
