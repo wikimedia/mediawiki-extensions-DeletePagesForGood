@@ -28,8 +28,11 @@ class DeletePagesForGood {
 
 
 		#Special pages can not be deleted (special pages have no article id anyway).
-		if ( $wgTitle->getArticleID() != 0 && $wgDeletePagesForGoodNamespaces[$wgTitle->getNamespace()] == true && $wgTitle->getNamespace() != NS_SPECIAL ) {
-
+		if ( $wgTitle->getArticleID() != 0
+			&& isset( $wgDeletePagesForGoodNamespaces[$wgTitle->getNamespace()] )
+			&& $wgDeletePagesForGoodNamespaces[$wgTitle->getNamespace()] == true
+			&& $wgTitle->getNamespace() != NS_SPECIAL
+		) {
 			$links['actions']['ask_delete_page_permanently'] = array(
 				'class' => ( $action == 'ask_delete_page_permanently' ) ? 'selected' : false,
 				'text' => wfMessage( 'deletepagesforgood-delete_permanently' )->text(),
