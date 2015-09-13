@@ -1,8 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fúlvio"
 		]
 	},
-	"deletepagesforgood-yes": "Sim"
+	"deletepagesforgood-desc": "Permite que os utilizadores eliminem páginas permanentemente do banco de dados ao adicionar uma nova guia de eliminação em cada página.",
+	"deletepagesforgood-delete_permanently": "Eliminar página permanentemente",
+	"deletepagesforgood-del_impossible": "Esta página não pode ser eliminada permanentemente",
+	"deletepagesforgood-ask_deletion": "Tem certeza de que deseja eliminar esta página permanentemente? Todas as versões e entradas do registro serão eliminados. Não há chance de desfazer este processo após a sua conclusão.",
+	"deletepagesforgood-yes": "Sim",
+	"deletepagesforgood-del_done": "A página foi eliminada permanentemente.",
+	"right-deleteperm": "Eliminar páginas permanentemente",
+	"action-deleteperm": "eliminar páginas permanentemente"
 }
