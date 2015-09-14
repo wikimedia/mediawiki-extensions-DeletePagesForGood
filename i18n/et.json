@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metsavend"
+		]
+	},
+	"deletepagesforgood-delete_permanently": "Kustuta lehekülg püsivalt",
+	"deletepagesforgood-ask_deletion": "Kas oled kindel, et soovid püsivalt kustutada selle lehe? Kõik versioonid ja logi sissekanded kustutatakse. Seda protsessi pole peale täideviimist võimalik tühistada.",
+	"deletepagesforgood-yes": "Jah",
+	"right-deleteperm": "Kustuta lehed püsivalt",
+	"action-deleteperm": "kustuta lehed püsivalt"
+}
