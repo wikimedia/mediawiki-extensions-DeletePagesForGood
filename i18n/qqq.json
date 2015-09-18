@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Raymond"
+			"Raymond",
+			"Pikne"
 		]
 	},
 	"extensionname-deletepagesforgood": "{{optional}}",
@@ -12,5 +13,6 @@
 	"deletepagesforgood-ask_deletion": "This message is givin you a warrning before you continue and says are you sure you want to continue deleting this page permanently.",
 	"deletepagesforgood-yes": "{{Identical|Yes}}",
 	"deletepagesforgood-del_done": "This message says that the page was successfully deleted per manently.",
-	"right-deleteperm": "{{doc-right|deleteperm}}"
+	"right-deleteperm": "{{doc-right|deleteperm}}",
+	"action-deleteperm": "{{Doc-action|deleteperm}}"
 }

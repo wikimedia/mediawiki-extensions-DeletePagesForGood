@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metsavend"
+			"Metsavend",
+			"Pikne"
 		]
 	},
 	"deletepagesforgood-delete_permanently": "Kustuta lehekülg püsivalt",
-	"deletepagesforgood-ask_deletion": "Kas oled kindel, et soovid püsivalt kustutada selle lehe? Kõik versioonid ja logi sissekanded kustutatakse. Seda protsessi pole peale täideviimist võimalik tühistada.",
+	"deletepagesforgood-ask_deletion": "Kas oled kindel, et soovid püsivalt kustutada selle lehekülje? Kõik versioonid ja logisissekanded kustutatakse. Seda protsessi pole pärast täideviimist võimalik tühistada.",
 	"deletepagesforgood-yes": "Jah",
-	"right-deleteperm": "Kustuta lehed püsivalt",
-	"action-deleteperm": "kustuta lehed püsivalt"
+	"right-deleteperm": "Kustutada lehekülgi püsivalt",
+	"action-deleteperm": "kustutada lehekülgi püsivalt"
 }
