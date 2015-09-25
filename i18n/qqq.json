@@ -6,7 +6,7 @@
 			"Pikne"
 		]
 	},
-	"extensionname-deletepagesforgood": "{{optional}}",
+	"deletepagesforgood-extensionname": "{{optional}}",
 	"deletepagesforgood-desc": "{{desc|name=DeletePagesForGood|url=https://www.mediawiki.org/wiki/Extension:DeletePagesForGood}}",
 	"deletepagesforgood-delete_permanently": "This message is under the action menu and the text is Delete page permanently.",
 	"deletepagesforgood-del_impossible": "This messages says that there is an error and that the page cannot be deleted permanently.",

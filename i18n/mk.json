@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"extensionname-deletepagesforgood": "Трајно бришење на страници",
+	"deletepagesforgood-extensionname": "Трајно бришење на страници",
 	"deletepagesforgood-desc": "Им овозможува на корисниците трајно да бришат страници од бази. Додава ново јазиче во секоја страница.",
 	"deletepagesforgood-delete_permanently": "Трајно избриши ја страницата",
 	"deletepagesforgood-del_impossible": "Оваа страница не може да се избрише трајно",
