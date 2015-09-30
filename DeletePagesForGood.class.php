@@ -2,8 +2,8 @@
 
 class DeletePagesForGood {
 
-	function DeletePagesForGood() {
-		global $wgHooks, $wgUser;
+	function __construct() {
+		global $wgHooks;
 
 		$wgHooks['SkinTemplateNavigation::Universal'][] = array(
 			&$this,
@@ -26,8 +26,7 @@ class DeletePagesForGood {
 
 		$action = $wgRequest->getText( 'action' );
 
-
-		#Special pages can not be deleted (special pages have no article id anyway).
+		# Special pages can not be deleted (special pages have no article id anyway).
 		if ( $wgTitle->getArticleID() != 0
 			&& isset( $wgDeletePagesForGoodNamespaces[$wgTitle->getNamespace()] )
 			&& $wgDeletePagesForGoodNamespaces[$wgTitle->getNamespace()] == true
@@ -36,7 +35,7 @@ class DeletePagesForGood {
 			$links['actions']['ask_delete_page_permanently'] = array(
 				'class' => ( $action == 'ask_delete_page_permanently' ) ? 'selected' : false,
 				'text' => wfMessage( 'deletepagesforgood-delete_permanently' )->text(),
-				'href' => $wgTitle->getLocalUrl('action=ask_delete_page_permanently')
+				'href' => $wgTitle->getLocalUrl( 'action=ask_delete_page_permanently' )
 			);
 		}
 
@@ -56,15 +55,18 @@ class DeletePagesForGood {
 		if ( $action == 'ask_delete_page_permanently' ) {
 
 			$action = $wgArticle->getTitle()->getLocalUrl( 'action=delete_page_permanently' );
-			$wgOut->addHTML("<form id='ask_delete_page_permanently' method='post' action=\"$action\">
-<table>
-        <tr>
-                <td>" . wfMessage( 'deletepagesforgood-ask_deletion' )->text() . "</td>
-        </tr>
-        <tr>
-                <td><input type='submit' name='submit' value=\"" . wfMessage( 'deletepagesforgood-yes' )->text() . "\" /></td>
-        </tr>
-</table></form>");
+			$wgOut->addHTML( "<form id='ask_delete_page_permanently' method='post' action=\"$action\">
+				<table>
+						<tr>
+							<td>" . wfMessage( 'deletepagesforgood-ask_deletion' )->text() . "</td>
+						</tr>
+						<tr>
+							<td><input type='submit' name='submit' value=\"" .
+								wfMessage( 'deletepagesforgood-yes' )->text() . "\" />
+							</td>
+						</tr>
+				</table></form>"
+			);
 			return false;
 		} elseif ( $action == 'delete_page_permanently' ) {
 			# Perform actual deletion
@@ -72,7 +74,9 @@ class DeletePagesForGood {
 			$t = $wgArticle->mTitle->getDBkey();
 			$id = $wgArticle->mTitle->getArticleID();
 
-			if ( $t == '' || $id == 0 || $wgDeletePagesForGoodNamespaces[$ns] != true || $ns == NS_SPECIAL ) {
+			if ( $t == '' || $id == 0 || $wgDeletePagesForGoodNamespaces[$ns] != true
+				|| $ns == NS_SPECIAL
+			) {
 				$wgOut->addHTML( wfMessage( 'deletepagesforgood-del_impossible' )->escaped() );
 				return false;
 			}
@@ -97,9 +101,9 @@ class DeletePagesForGood {
 
 		$dbw->begin();
 
-		####
-		## First delete entries, which are in direct relation with the page:
-		####
+		/*
+		 * First delete entries, which are in direct relation with the page:
+		 */
 
 		# delete redirect...
 		$dbw->delete( 'redirect', array( 'rd_from' => $id ), __METHOD__ );
@@ -139,9 +143,9 @@ class DeletePagesForGood {
 		# delete image links
 		$dbw->delete( 'imagelinks', array( 'il_from' => $id ), __METHOD__ );
 
-		####
-		## then delete entries which are not in direct relation with the page:
-		####
+		/*
+		 * then delete entries which are not in direct relation with the page:
+		 */
 
 		# Clean up recentchanges entries...
 		$dbw->delete( 'recentchanges', array(
@@ -153,24 +157,24 @@ class DeletePagesForGood {
 		$res = $dbw->select( 'archive', 'ar_text_id', array(
 			'ar_namespace' => $ns,
 			'ar_title' => $t
-		));
+		) );
 
 		while ( $row = $dbw->fetchObject( $res ) ) {
 			$value = $row->ar_text_id;
-			$dbw->delete( 'text', array( 'old_id' => $value), __METHOD__ );
+			$dbw->delete( 'text', array( 'old_id' => $value ), __METHOD__ );
 		}
 
 		# Clean archive entries...
-		$dbw->delete( 'archive', array (
+		$dbw->delete( 'archive', array(
 			'ar_namespace' => $ns,
 			'ar_title' => $t
-		), __METHOD__);
+		), __METHOD__ );
 
 		# Clean up log entries...
 		$dbw->delete( 'logging', array(
 			'log_namespace' => $ns,
 			'log_title' => $t
-		), __METHOD__);
+		), __METHOD__ );
 
 		# Clean up watchlist...
 		$dbw->delete( 'watchlist', array(
@@ -181,20 +185,20 @@ class DeletePagesForGood {
 		# In the table 'page' : Delete the page entry
 		$dbw->delete( 'page', array( 'page_id' => $id ), __METHOD__ );
 
-		####
-		## If the article belongs to a category, update category counts
-		####
+		/*
+		 * If the article belongs to a category, update category counts
+		 */
 		if ( !empty( $cats ) ) {
 			foreach ( $cats as $parentcat => $currentarticle ) {
-				$catname = split(':', $parentcat, 2);
-				$cat = Category::newFromName($catname[1]);
+				$catname = preg_split( ':', $parentcat, 2 );
+				$cat = Category::newFromName( $catname[1] );
 				$cat->refreshCounts();
 			}
 		}
 
-		####
-		## If an image is beeing deleted, some extra work needs to be done
-		####
+		/*
+		 * If an image is beeing deleted, some extra work needs to be done
+		 */
 		if ( $ns == NS_IMAGE ) {
 
 			$file = wfFindFile( $t );
@@ -205,11 +209,11 @@ class DeletePagesForGood {
 				$res = $dbw->select( 'oldimage', $fields, array( 'oi_name' => $t ) );
 
 				while ( $row = $dbw->fetchObject( $res ) ) {
-					$oldLocalFile = OldLocalFile::newFromRow($row, $file->repo);
+					$oldLocalFile = OldLocalFile::newFromRow( $row, $file->repo );
 					$path = $oldLocalFile->getArchivePath() . '/' . $oldLocalFile->getArchiveName();
 
 					try {
-						@unlink( $path );
+						unlink( $path );
 					}
 					catch ( Exception $e ) {
 						$wgOut->addHTML( $e->getMessage() );
@@ -220,7 +224,7 @@ class DeletePagesForGood {
 
 				try {
 					$file->purgeThumbnails();
-					@unlink($path);
+					unlink( $path );
 				} catch ( Exception $e ) {
 					$wgOut->addHTML( $e->getMessage() );
 				}

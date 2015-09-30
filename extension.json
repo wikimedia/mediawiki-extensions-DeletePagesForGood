@@ -21,6 +21,9 @@
 			"deleteperm": true
 		}
 	},
+	"AvailableRights": [
+		"deleteperm"
+	],
 	"ExtensionFunctions": [
 		"DeletePagesForGoodHooks::onDeletesPagesPermanently"
 	],
