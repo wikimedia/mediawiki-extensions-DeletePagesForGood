@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mehtab ahmed"
+		]
+	},
+	"deletepagesforgood-delete_permanently": "صفحو مستقل طور تي ختم ڪريو",
+	"deletepagesforgood-del_impossible": "هي صفحو مستقل طور تي ختم نٿو ڪري سگهجي",
+	"deletepagesforgood-yes": "ها",
+	"deletepagesforgood-del_done": "صفحو مستقل طور تي ختم ڪيو ويو آهي.",
+	"right-deleteperm": "صفحا مڪمل طور تي ختم ڪريو",
+	"action-deleteperm": "صفحا مستقل طور تي ختم ڪريو"
+}

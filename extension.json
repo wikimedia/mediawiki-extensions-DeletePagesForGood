@@ -1,6 +1,6 @@
 {
 	"name": "DeletePagesForGood",
-	"namemsg": "extensionname-deletepagesforgood",
+	"namemsg": "deletepagesforgood-extensionname",
 	"version": "1.0",
 	"author": "Paladox",
 	"url": "https://www.mediawiki.org/wiki/Extension:DeletePagesForGood",
@@ -21,6 +21,9 @@
 			"deleteperm": true
 		}
 	},
+	"AvailableRights": [
+		"deleteperm"
+	],
 	"ExtensionFunctions": [
 		"DeletePagesForGoodHooks::onDeletesPagesPermanently"
 	],
