@@ -4,6 +4,7 @@
 			"Metalhead64"
 		]
 	},
+	"deletepagesforgood-extensionname": "DeletePagesForGood",
 	"deletepagesforgood-desc": "Ermöglicht es Benutzern durch Hinzufügen einer neuen Löschen-Registerkarte auf jeder Seite, Seiten dauerhaft aus der Datenbank zu löschen.",
 	"deletepagesforgood-delete_permanently": "Seite dauerhaft löschen",
 	"deletepagesforgood-del_impossible": "Diese Seite kann nicht dauerhaft gelöscht werden",
