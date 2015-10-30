@@ -21,20 +21,24 @@
 			"deleteperm": true
 		}
 	},
+	"Actions": {
+		"delete_page_permanently": "ActionDeletePagePermanently"
+	},
 	"AvailableRights": [
 		"deleteperm"
-	],
-	"ExtensionFunctions": [
-		"DeletePagesForGoodHooks::onDeletesPagesPermanently"
 	],
 	"MessagesDirs": {
 		"DeletePagesForGood": [
 			"i18n"
 		]
 	},
+	"Hooks": {
+		"SkinTemplateNavigation::Universal": [
+			"ActionDeletePagePermanently::AddSkinHook"
+		]
+	},
 	"AutoloadClasses": {
-		"DeletePagesForGoodHooks": "DeletePagesForGood.hooks.php",
-		"DeletePagesForGood": "DeletePagesForGood.class.php"
+		"ActionDeletePagePermanently": "ActionDeletePagePermanently.php"
 	},
 	"config": {
 		"DeletePagesForGoodNamespaces": {
