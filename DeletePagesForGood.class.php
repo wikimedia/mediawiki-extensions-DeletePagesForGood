@@ -132,7 +132,7 @@ class DeletePagesForGood {
 		# read text entries for all revisions and delete them.
 		$res = $dbw->select( 'revision', 'rev_text_id', "rev_page=$id" );
 
-		while ( $row = $dbw->fetchObject( $res ) ) {
+		foreach ( $res as $row ) {
 			$value = $row->rev_text_id;
 			$dbw->delete( 'text', array( 'old_id' => $value ), __METHOD__ );
 		}
@@ -159,7 +159,7 @@ class DeletePagesForGood {
 			'ar_title' => $t
 		) );
 
-		while ( $row = $dbw->fetchObject( $res ) ) {
+		foreach ( $res as $row ) {
 			$value = $row->ar_text_id;
 			$dbw->delete( 'text', array( 'old_id' => $value ), __METHOD__ );
 		}
@@ -208,7 +208,7 @@ class DeletePagesForGood {
 				$fields = OldLocalFile::selectFields();
 				$res = $dbw->select( 'oldimage', $fields, array( 'oi_name' => $t ) );
 
-				while ( $row = $dbw->fetchObject( $res ) ) {
+				foreach ( $res as $row ) {
 					$oldLocalFile = OldLocalFile::newFromRow( $row, $file->repo );
 					$path = $oldLocalFile->getArchivePath() . '/' . $oldLocalFile->getArchiveName();
 
