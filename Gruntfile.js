@@ -9,7 +9,8 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		jshint: {
 			all: [
-				'*.js'
+				'**/*.js',
+				'!node_modules/**'
 			]
 		},
 		jscs: {
@@ -18,7 +19,6 @@ module.exports = function ( grunt ) {
 		banana: conf.MessagesDirs,
 		jsonlint: {
 			all: [
-				'*.json',
 				'**/*.json',
 				'!node_modules/**'
 			]
