@@ -1,7 +1,7 @@
 {
-	"name": "mediawiki/deletepagesforgood-extension",
+	"name": "mediawiki/deletepagesforgood",
 	"type": "mediawiki-extension",
-	"description": "A extension for mediawiki",
+	"description": "A MediaWiki extension which allows users to delete pages permanently from database by adding a new delete tab to each page.",
 	"keywords": [
 		"wiki",
 		"MediaWiki",
@@ -19,6 +19,9 @@
 		"forum": "https://www.mediawiki.org/wiki/Extension_talk:DeletePagesForGood",
 		"source": "https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FDeletePagesForGood",
 		"irc": "irc://irc.freenode.org/mediawiki"
+	},
+	"replace": {
+		"mediawiki/deletepagesforgood-extension": "*"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.9.*",
