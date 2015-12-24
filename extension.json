@@ -53,7 +53,8 @@
 			"12": true,
 			"13": true,
 			"14": true,
-			"15": true
+			"15": true,
+			"_merge_strategy": "array_plus"
 		}
 	},
 	"manifest_version": 1
