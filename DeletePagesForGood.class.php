@@ -99,7 +99,7 @@ class DeletePagesForGood {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		$dbw->begin();
+		$dbw->begin( __METHOD__ );
 
 		/*
 		 * First delete entries, which are in direct relation with the page:
@@ -242,7 +242,7 @@ class DeletePagesForGood {
 			# Delete image entry:
 			$dbw->delete( 'image', array( 'img_name' => $t ), __METHOD__ );
 
-			$dbw->commit();
+			$dbw->commit( __METHOD__ );
 
 			$linkCache = LinkCache::singleton();
 			$linkCache->clear();
