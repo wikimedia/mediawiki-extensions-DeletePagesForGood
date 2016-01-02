@@ -46,9 +46,7 @@ class DeletePagesForGood {
 		global $wgOut, $wgUser, $wgDeletePagesForGoodNamespaces;
 
 		if ( !$wgUser->isAllowed( 'deleteperm' ) ) {
-			$wgOut->permissionRequired( 'deleteperm' );
-
-			return false;
+			throw new PermissionsError( 'deleteperm' );
 		}
 
 		# Print a form to approve deletion
