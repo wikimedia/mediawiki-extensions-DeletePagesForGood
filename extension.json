@@ -1,7 +1,7 @@
 {
 	"name": "DeletePagesForGood",
 	"namemsg": "deletepagesforgood-extensionname",
-	"version": "1.0",
+	"version": "2.0",
 	"author": "Paladox",
 	"url": "https://www.mediawiki.org/wiki/Extension:DeletePagesForGood",
 	"descriptionmsg": "deletepagesforgood-desc",
