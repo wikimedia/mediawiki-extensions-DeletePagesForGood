@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Beta16"
 		]
 	},
+	"deletepagesforgood-deletepagetitle": "Cancella definitivamente \"$1\"",
 	"deletepagesforgood-yes": "Sì"
 }

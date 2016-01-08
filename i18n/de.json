@@ -6,6 +6,7 @@
 	},
 	"deletepagesforgood-extensionname": "DeletePagesForGood",
 	"deletepagesforgood-desc": "Ermöglicht es Benutzern durch Hinzufügen einer neuen Löschen-Registerkarte auf jeder Seite, Seiten dauerhaft aus der Datenbank zu löschen.",
+	"deletepagesforgood-deletepagetitle": "„$1“ dauerhaft löschen",
 	"deletepagesforgood-delete_permanently": "Seite dauerhaft löschen",
 	"deletepagesforgood-del_impossible": "Diese Seite kann nicht dauerhaft gelöscht werden",
 	"deletepagesforgood-ask_deletion": "Bist du sicher, dass du diese Seite dauerhaft löschen möchtest? Alle Versionen und Logbucheinträge werden gelöscht. Es gibt keine Möglichkeit, diesen Prozess rückgängig zu machen, wenn dieser abgeschlossen ist.",

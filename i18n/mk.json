@@ -6,6 +6,7 @@
 	},
 	"deletepagesforgood-extensionname": "Трајно бришење на страници",
 	"deletepagesforgood-desc": "Им овозможува на корисниците трајно да бришат страници од бази. Додава ново јазиче во секоја страница.",
+	"deletepagesforgood-deletepagetitle": "Трајно бришење на „$1“",
 	"deletepagesforgood-delete_permanently": "Трајно избриши ја страницата",
 	"deletepagesforgood-del_impossible": "Оваа страница не може да се избрише трајно",
 	"deletepagesforgood-ask_deletion": "Дали сте сигурни дека сакате трајно да ја избришете страницава? Ќе се избришат сите преработки и дневничките ставки. Постапката е неповратна.",
