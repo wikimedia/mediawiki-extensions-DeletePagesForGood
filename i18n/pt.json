@@ -7,6 +7,7 @@
 		]
 	},
 	"deletepagesforgood-desc": "Permite que os utilizadores eliminem páginas permanentemente da base de dados ao adicionar um novo separador de eliminação em cada página.",
+	"deletepagesforgood-deletepagetitle": "Eliminar \"$1\" permanentemente",
 	"deletepagesforgood-delete_permanently": "Eliminar página permanentemente",
 	"deletepagesforgood-del_impossible": "Esta página não pode ser eliminada permanentemente",
 	"deletepagesforgood-ask_deletion": "Tem certeza de que deseja eliminar esta página permanentemente? Todas as versões e entradas do registo serão eliminados. O processo não poderá ser desfeito após a sua conclusão.",
