@@ -5,6 +5,7 @@
 		]
 	},
 	"deletepagesforgood-desc": "Permite a los usuarios desaniciar permanentemente páxines de la base de datos amestando una llingüeta desaniciar nueva a cada páxina.",
+	"deletepagesforgood-deletepagetitle": "Desaniciar permanentemente «$1»",
 	"deletepagesforgood-delete_permanently": "Desaniciar permanentemente la páxina",
 	"deletepagesforgood-del_impossible": "Esta páxina nun pué desaniciase permanentemente",
 	"deletepagesforgood-ask_deletion": "¿Tas seguru de que quies desaniciar permanentemente esta páxina? van desaniciase toles versiones y entraes del rexistru. Nun hai nenguna posibilidá de desfaer esti procesu dempués de que remate.",
