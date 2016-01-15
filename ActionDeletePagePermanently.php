@@ -26,6 +26,10 @@ class ActionDeletePagePermanently extends FormAction {
 		return 'delete_page_permanently';
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	public function getDescription() {
 		return '';
 	}
