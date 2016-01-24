@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"deletepagesforgood-desc": "Путём добавления на каждую страницу новой вкладки удаления позволяет участникам безвозвратно удалять страницы из базы данных.",
+	"deletepagesforgood-deletepagetitle": "Безвозвратно удалить «$1»",
+	"deletepagesforgood-delete_permanently": "Безвозвратно удалить страницу",
+	"deletepagesforgood-del_impossible": "Эта страница не может быть безвозвратно удалена",
+	"deletepagesforgood-ask_deletion": "Вы уверены, что хотите безвозвратно удалить эту страницу? Все версии и записи в журнале будут удалены. Нет никакой возможности отменить этот процесс после завершения.",
+	"deletepagesforgood-yes": "Да",
+	"deletepagesforgood-del_done": "Страница была безвозвратно удалена.",
+	"right-deleteperm": "Безвозвратно удалять страницы",
+	"action-deleteperm": "безвозвратно удалять страницы"
+}
