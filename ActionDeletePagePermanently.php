@@ -22,6 +22,9 @@ class ActionDeletePagePermanently extends FormAction {
 		return true;
 	}
 
+	protected function getFormFields() {
+	}
+
 	public function getName() {
 		return 'delete_page_permanently';
 	}
