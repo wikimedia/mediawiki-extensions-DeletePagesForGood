@@ -1,13 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dars"
+			"Dars",
+			"Piramidion"
 		]
 	},
 	"deletepagesforgood-desc": "Дозволить користувачам повністю видаляти сторінки з бази даних, шляхом додавання нової кладки видалення для кожної сторінки.",
+	"deletepagesforgood-deletepagetitle": "Остаточно вилучити «$1»",
 	"deletepagesforgood-delete_permanently": "Видалити сторінку назавжди",
-	"deletepagesforgood-del_impossible": "Цю сторінка неможливо видалити без можливості відновлення",
-	"deletepagesforgood-ask_deletion": "Ви впевнені, що хочете видалити цю сторінку назавжди? Всі версії і запису в журналі будуть видалені. Після завершення неможливо буде відмінити цю процедуру.",
+	"deletepagesforgood-del_impossible": "Цю сторінку неможливо видалити без можливості відновлення",
+	"deletepagesforgood-ask_deletion": "Ви впевнені, що хочете видалити цю сторінку назавжди? Всі версії і записи в журналі будуть видалені. Після завершення неможливо буде скасувати цю процедуру.",
 	"deletepagesforgood-yes": "Так",
 	"deletepagesforgood-del_done": "Сторінку було остаточно вилучено.",
 	"right-deleteperm": "Видалити сторінки назавжди",
