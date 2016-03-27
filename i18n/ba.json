@@ -4,7 +4,13 @@
 			"Sagan"
 		]
 	},
+	"deletepagesforgood-desc": "Биттәргә яңы ҡушымта өҫтәп ҡатнашыусылар биттәрен мәғлүмәттәр базаһынан кире ҡайтарылғыһыҙ итеп юйа ала.",
 	"deletepagesforgood-deletepagetitle": "«$1» кире ҡайтарылғыһығыҙ итеп юйырғы",
 	"deletepagesforgood-delete_permanently": "Кире ҡайтарылғыһығыҙ итеп юйырға",
-	"deletepagesforgood-del_impossible": "Был битте кире ҡайтарылғыһығыҙ итеп юйып булмай"
+	"deletepagesforgood-del_impossible": "Был битте кире ҡайтарылғыһығыҙ итеп юйып булмай",
+	"deletepagesforgood-ask_deletion": "Битте кире ҡайтарылғыһыҙ итеп юйырға теләйһегеҙме?",
+	"deletepagesforgood-yes": "Эйе",
+	"deletepagesforgood-del_done": "Бит кере ҡайтарылғыһыҙ итеп юйылды.",
+	"right-deleteperm": "Кире ҡайтарылғыһығыҙ итеп юйырға",
+	"action-deleteperm": "Кире ҡайтарылғыһығыҙ итеп юйырға"
 }
