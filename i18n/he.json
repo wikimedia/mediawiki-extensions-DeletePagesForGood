@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Guycn2"
+			"Guycn2",
+			"Amire80"
 		]
 	},
 	"deletepagesforgood-desc": "מאפשר למשתמשים למחוק דפים לצמיתות מבסיס־הנתונים באמצעות לשונית מחיקה בכל דף.",
 	"deletepagesforgood-deletepagetitle": "מחיקת הדף \"$1\" לצמיתות",
 	"deletepagesforgood-delete_permanently": "מחיקת הדף לצמיתות",
 	"deletepagesforgood-del_impossible": "אין אפשרות למחוק את הדף הזה לצמיתות",
-	"deletepagesforgood-ask_deletion": "האם אתם בטוחים שברצונכם למחוק את הדף הזה לצמיתות? כל הגרסאות ופעולות היומן יימחקו. אין שום אפשרות לבטל את הפעולה הזאת לאחר הביצוע.",
+	"deletepagesforgood-ask_deletion": "האם ברצונך באמת למחוק את הדף הזה לצמיתות? כל הגרסאות ופעולות היומן יימחקו. אין שום אפשרות לבטל את הפעולה הזאת לאחר הביצוע.",
 	"deletepagesforgood-yes": "כן",
 	"deletepagesforgood-del_done": "הדף נמחק לצמיתות.",
 	"right-deleteperm": "מחיקת דפים לצמיתות",
