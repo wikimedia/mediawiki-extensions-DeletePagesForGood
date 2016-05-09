@@ -12,11 +12,11 @@ class ActionDeletePagePermanently extends FormAction {
 		$action = self::getActionName( $sktemplate );
 
 		if ( self::canDeleteTitle( $title ) ) {
-			$links['actions']['delete_page_permanently'] = array(
+			$links['actions']['delete_page_permanently'] = [
 				'class' => ( $action === 'delete_page_permanently' ) ? 'selected' : false,
 				'text' => $sktemplate->msg( 'deletepagesforgood-delete_permanently' )->text(),
 				'href' => $title->getLocalUrl( 'action=delete_page_permanently' )
-			);
+			];
 		}
 
 		return true;
@@ -56,7 +56,7 @@ class ActionDeletePagePermanently extends FormAction {
 			return true;
 		} else {
 			# $output->addHTML( $this->msg( 'deletepagesforgood-del_impossible' )->escaped() );
-			return array( 'deletepagesforgood-del_impossible' );
+			return [ 'deletepagesforgood-del_impossible' ];
 		}
 	}
 
@@ -76,86 +76,86 @@ class ActionDeletePagePermanently extends FormAction {
 		 */
 
 		# delete redirect...
-		$dbw->delete( 'redirect', array( 'rd_from' => $id ), __METHOD__ );
+		$dbw->delete( 'redirect', [ 'rd_from' => $id ], __METHOD__ );
 
 		# delete external link...
-		$dbw->delete( 'externallinks', array( 'el_from' => $id ), __METHOD__ );
+		$dbw->delete( 'externallinks', [ 'el_from' => $id ], __METHOD__ );
 
 		# delete language link...
-		$dbw->delete( 'langlinks', array( 'll_from' => $id ), __METHOD__ );
+		$dbw->delete( 'langlinks', [ 'll_from' => $id ], __METHOD__ );
 
 		if ( !$GLOBALS['wgDBtype'] == "postgres" ) {
 			# delete search index...
-			$dbw->delete( 'searchindex', array( 'si_page' => $id ), __METHOD__ );
+			$dbw->delete( 'searchindex', [ 'si_page' => $id ], __METHOD__ );
 		}
 
 		# Delete restrictions for the page
-		$dbw->delete( 'page_restrictions', array( 'pr_page' => $id ), __METHOD__ );
+		$dbw->delete( 'page_restrictions', [ 'pr_page' => $id ], __METHOD__ );
 
 		# Delete page Links
-		$dbw->delete( 'pagelinks', array( 'pl_from' => $id ), __METHOD__ );
+		$dbw->delete( 'pagelinks', [ 'pl_from' => $id ], __METHOD__ );
 
 		# delete category links
-		$dbw->delete( 'categorylinks', array( 'cl_from' => $id ), __METHOD__ );
+		$dbw->delete( 'categorylinks', [ 'cl_from' => $id ], __METHOD__ );
 
 		# delete template links
-		$dbw->delete( 'templatelinks', array( 'tl_from' => $id ), __METHOD__ );
+		$dbw->delete( 'templatelinks', [ 'tl_from' => $id ], __METHOD__ );
 
 		# read text entries for all revisions and delete them.
 		$res = $dbw->select( 'revision', 'rev_text_id', "rev_page=$id" );
 
 		foreach ( $res as $row ) {
 			$value = $row->rev_text_id;
-			$dbw->delete( 'text', array( 'old_id' => $value ), __METHOD__ );
+			$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
 		}
 
 		# In the table 'revision' : Delete all the revision of the page where 'rev_page' = $id
-		$dbw->delete( 'revision', array( 'rev_page' => $id ), __METHOD__ );
+		$dbw->delete( 'revision', [ 'rev_page' => $id ], __METHOD__ );
 
 		# delete image links
-		$dbw->delete( 'imagelinks', array( 'il_from' => $id ), __METHOD__ );
+		$dbw->delete( 'imagelinks', [ 'il_from' => $id ], __METHOD__ );
 
 		/*
 		 * then delete entries which are not in direct relation with the page:
 		 */
 
 		# Clean up recentchanges entries...
-		$dbw->delete( 'recentchanges', array(
+		$dbw->delete( 'recentchanges', [
 			'rc_namespace' => $ns,
 			'rc_title' => $t
-		), __METHOD__ );
+		], __METHOD__ );
 
 		# read text entries for all archived pages and delete them.
-		$res = $dbw->select( 'archive', 'ar_text_id', array(
+		$res = $dbw->select( 'archive', 'ar_text_id', [
 			'ar_namespace' => $ns,
 			'ar_title' => $t
-		) );
+		] );
 
 		foreach ( $res as $row ) {
 			$value = $row->ar_text_id;
-			$dbw->delete( 'text', array( 'old_id' => $value ), __METHOD__ );
+			$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
 		}
 
 		# Clean archive entries...
-		$dbw->delete( 'archive', array(
+		$dbw->delete( 'archive', [
 			'ar_namespace' => $ns,
 			'ar_title' => $t
-		), __METHOD__ );
+		], __METHOD__ );
 
 		# Clean up log entries...
-		$dbw->delete( 'logging', array(
+		$dbw->delete( 'logging', [
 			'log_namespace' => $ns,
 			'log_title' => $t
-		), __METHOD__ );
+		], __METHOD__ );
 
 		# Clean up watchlist...
-		$dbw->delete( 'watchlist', array(
+		$dbw->delete( 'watchlist', [
 			'wl_namespace' => $ns,
 			'wl_title' => $t
-		), __METHOD__ );
+		], __METHOD__ );
 
 		# In the table 'page' : Delete the page entry
-		$dbw->delete( 'page', array( 'page_id' => $id ), __METHOD__ );
+		$dbw->delete( 'page', [ 'page_id' => $id ], __METHOD__ );
 
 		/*
 		 * If the article belongs to a category, update category counts
@@ -178,7 +178,7 @@ class ActionDeletePagePermanently extends FormAction {
 			if ( $file ) {
 				# Get all filenames of old versions:
 				$fields = OldLocalFile::selectFields();
-				$res = $dbw->select( 'oldimage', $fields, array( 'oi_name' => $t ) );
+				$res = $dbw->select( 'oldimage', $fields, [ 'oi_name' => $t ] );
 
 				foreach ( $res as $row ) {
 					$oldLocalFile = OldLocalFile::newFromRow( $row, $file->repo );
@@ -203,16 +203,16 @@ class ActionDeletePagePermanently extends FormAction {
 			}
 
 			# clean the filearchive for the given filename:
-			$dbw->delete( 'filearchive', array( 'fa_name' => $t ), __METHOD__ );
+			$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
 
 			# Delete old db entries of the image:
-			$dbw->delete( 'oldimage', array( 'oi_name' => $t ), __METHOD__ );
+			$dbw->delete( 'oldimage', [ 'oi_name' => $t ], __METHOD__ );
 
 			# Delete archive entries of the image:
-			$dbw->delete( 'filearchive', array( 'fa_name' => $t ), __METHOD__ );
+			$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
 
 			# Delete image entry:
-			$dbw->delete( 'image', array( 'img_name' => $t ), __METHOD__ );
+			$dbw->delete( 'image', [ 'img_name' => $t ], __METHOD__ );
 
 			$dbw->commit( __METHOD__ );
 
