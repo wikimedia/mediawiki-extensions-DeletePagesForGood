@@ -17,7 +17,7 @@
 	"support": {
 		"wiki": "https://www.mediawiki.org/wiki/Extension:DeletePagesForGood",
 		"forum": "https://www.mediawiki.org/wiki/Extension_talk:DeletePagesForGood",
-		"source": "https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FDeletePagesForGood",
+		"source": "https://phabricator.wikimedia.org/diffusion/EDPG/",
 		"irc": "irc://irc.freenode.org/mediawiki"
 	},
 	"replace": {
