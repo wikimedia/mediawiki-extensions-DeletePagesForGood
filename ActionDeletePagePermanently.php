@@ -162,7 +162,7 @@ class ActionDeletePagePermanently extends FormAction {
 		 */
 		if ( !empty( $cats ) ) {
 			foreach ( $cats as $parentcat => $currentarticle ) {
-				$catname = preg_split( ':', $parentcat, 2 );
+				$catname = preg_split( '/:/', $parentcat, 2 );
 				$cat = Category::newFromName( $catname[1] );
 				$cat->refreshCounts();
 			}
