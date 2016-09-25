@@ -69,7 +69,7 @@ class ActionDeletePagePermanently extends FormAction {
 
 		$dbw = wfGetDB( DB_MASTER );
 
-		$dbw->begin( __METHOD__ );
+		$dbw->startAtomic( __METHOD__ );
 
 		/*
 		 * First delete entries, which are in direct relation with the page:
@@ -214,11 +214,12 @@ class ActionDeletePagePermanently extends FormAction {
 			# Delete image entry:
 			$dbw->delete( 'image', array( 'img_name' => $t ), __METHOD__ );
 
-			$dbw->commit( __METHOD__ );
+			// $dbw->endAtomic( __METHOD__ );
 
 			$linkCache = LinkCache::singleton();
 			$linkCache->clear();
 		}
+		$dbw->endAtomic( __METHOD__ );
 		return true;
 	}
 
