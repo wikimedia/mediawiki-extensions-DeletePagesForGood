@@ -8,7 +8,7 @@
 	"deletepagesforgood-deletepagetitle": "永久删除“$1”",
 	"deletepagesforgood-delete_permanently": "永久删除页面",
 	"deletepagesforgood-del_impossible": "此页面不能被永久删除",
-	"deletepagesforgood-ask_deletion": "您确定，您要永久删除此页面么？所有版本和日志记录将被删除。一旦完成此操作，就没有可能撤销。",
+	"deletepagesforgood-ask_deletion": "您确定要永久删除此页面么？所有版本和日志记录将被删除。完成后没有撤销的余地。",
 	"deletepagesforgood-yes": "是",
 	"deletepagesforgood-del_done": "页面已被永久删除。",
 	"right-deleteperm": "永久删除页面",
