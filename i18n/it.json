@@ -2,9 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
-			"Beta16"
+			"Beta16",
+			"Selven"
 		]
 	},
+	"deletepagesforgood-desc": "Consente agli utenti di eliminare le pagine in modo permanente dal database, aggiungendo una nuova scheda elimina in ogni pagina.",
 	"deletepagesforgood-deletepagetitle": "Cancella definitivamente \"$1\"",
-	"deletepagesforgood-yes": "Sì"
+	"deletepagesforgood-delete_permanently": "Eliminare la pagina permanentemente",
+	"deletepagesforgood-del_impossible": "Questa pagina non può essere eliminata in modo permanente",
+	"deletepagesforgood-ask_deletion": "Sei sicuro di voler cancellare questa pagina in modo permanente? Tutte le versioni e le voci di registro verranno eliminate. Non c'è possibilità di annullare questo processo dopo il completamento.",
+	"deletepagesforgood-yes": "Sì",
+	"deletepagesforgood-del_done": "La pagina è stata eliminata permanentemente.",
+	"right-deleteperm": "Eliminare le pagine permanentemente",
+	"action-deleteperm": "Elimina le pagine permanentemente"
 }
