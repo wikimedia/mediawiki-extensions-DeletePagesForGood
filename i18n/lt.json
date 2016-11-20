@@ -1,12 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zygimantus"
+			"Zygimantus",
+			"Eitvys200"
 		]
 	},
+	"deletepagesforgood-desc": "Leidžia vartotojams ištrinti puslapius iš duomenų bazės visam laikui pridedant trynimo skirtuką kiekviename puslapyje.",
+	"deletepagesforgood-deletepagetitle": "Visam laikui ištrinti „$1“",
 	"deletepagesforgood-delete_permanently": "Ištrinti puslapius visam laikui",
 	"deletepagesforgood-del_impossible": "Šis puslapis negali būti ištrinti visam laikui",
+	"deletepagesforgood-ask_deletion": "Ar tikrai norite ištrinti šį puslapį visam laikui? Visos versijos ir žurnalo įrašai bus ištrinti. Neįmanoma atstatyti šių pakeitimų, baigus procesą.",
 	"deletepagesforgood-yes": "Taip",
+	"deletepagesforgood-del_done": "Šis puslapis buvo ištrintas visam laikui.",
 	"right-deleteperm": "Ištrinti puslapius visam laikui",
 	"action-deleteperm": "ištrinti puslapius visam laikui"
 }
