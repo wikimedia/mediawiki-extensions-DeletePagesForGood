@@ -1,11 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tarjeimo"
+			"Tarjeimo",
+			"Jon Harald Søby"
 		]
 	},
+	"deletepagesforgood-desc": "Lar brukere slette sider fra databasen permanent med en ny fane på hver side.",
+	"deletepagesforgood-deletepagetitle": "Slett «$1» permanent",
 	"deletepagesforgood-delete_permanently": "Slett side for godt",
 	"deletepagesforgood-del_impossible": "Denne siden kan ikke bli slettet for godt",
+	"deletepagesforgood-ask_deletion": "Er du sikker på at du vil slette denne siden permanent? Alle versjoner og loggoppføringer vil slettes. Det er absolutt ingen mulig måte å angre dette senere.",
 	"deletepagesforgood-yes": "Ja",
 	"deletepagesforgood-del_done": "Siden har blitt slettet for godt",
 	"right-deleteperm": "Slett sider for godt",
