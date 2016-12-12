@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"deletepagesforgood-desc": "Permitte deler paginas permanentemente del base de datos per adder un nove scheda de deletion a cata pagina.",
+	"deletepagesforgood-deletepagetitle": "Deler permanentemente \"$1\"",
+	"deletepagesforgood-delete_permanently": "Deler pagina permanentemente",
+	"deletepagesforgood-del_impossible": "Iste pagina non pote esser delite permanentemente",
+	"deletepagesforgood-ask_deletion": "Es tu secur de voler deler iste pagina permanentemente? Tote le versiones e entratas de registro essera delite. Il non habera possibilitate de disfacer iste processo post completion.",
+	"deletepagesforgood-yes": "Si",
+	"deletepagesforgood-del_done": "Le pagina ha essite delite permanentemente.",
+	"right-deleteperm": "Deler paginas permanentemente",
+	"action-deleteperm": "deler paginas permanentemente"
+}
