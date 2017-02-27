@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"Mainframe98"
 		]
 	},
-	"deletepagesforgood-desc": "Maakt het mogelijk om pagina's permanent uit de database te verwijderen door het toevoegen van een tabblad Verwijderen aan iedere pagina"
+	"deletepagesforgood-desc": "Maakt het mogelijk om pagina's definitief uit de database te verwijderen door een nieuw verwijder tabblad aan iedere pagina toe te voegen.",
+	"deletepagesforgood-deletepagetitle": "Verwijder \"$1\" definitief",
+	"deletepagesforgood-delete_permanently": "Pagina definitief verwijderen",
+	"deletepagesforgood-del_impossible": "Deze pagina kan niet worden definitief worden verwijderd",
+	"deletepagesforgood-ask_deletion": "Weet u zeker dat u deze pagina definitief wilt verwijderen? Alle versies en logboekregels worden verwijderd. Er is geen mogelijkheid om dit ongedaan te maken nadat het proces voltooid is.",
+	"deletepagesforgood-yes": "Ja",
+	"deletepagesforgood-del_done": "De pagina is definitief verwijderd.",
+	"right-deleteperm": "Pagina's definitief verwijderen",
+	"action-deleteperm": "pagina's definitief te verwijderen"
 }
