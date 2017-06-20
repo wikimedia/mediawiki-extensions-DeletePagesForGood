@@ -4,7 +4,6 @@ class ActionDeletePagePermanently extends FormAction {
 
 	public static function AddSkinHook( SkinTemplate &$sktemplate, array &$links ) {
 		if ( !$sktemplate->getUser()->isAllowed( 'deleteperm' ) ) {
-
 			return false;
 		}
 
@@ -50,7 +49,6 @@ class ActionDeletePagePermanently extends FormAction {
 	}
 
 	public function onSubmit( $data ) {
-
 		if ( self::canDeleteTitle( $this->getTitle() ) ) {
 			$this->deletePermanently( $this->getTitle() );
 			return true;
@@ -61,7 +59,6 @@ class ActionDeletePagePermanently extends FormAction {
 	}
 
 	public function deletePermanently( Title $title ) {
-
 		$ns = $title->getNamespace();
 		$t = $title->getDBkey();
 		$id = $title->getArticleID();
@@ -176,7 +173,6 @@ class ActionDeletePagePermanently extends FormAction {
 		 * If an image is beeing deleted, some extra work needs to be done
 		 */
 		if ( $ns == NS_FILE ) {
-
 			$file = wfFindFile( $t );
 
 			if ( $file ) {
@@ -237,7 +233,6 @@ class ActionDeletePagePermanently extends FormAction {
 	}
 
 	protected function alterForm( HTMLForm $form ) {
-
 		$title = $this->getTitle();
 		$output = $this->getOutput();
 
