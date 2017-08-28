@@ -3,10 +3,11 @@
 		"authors": [
 			"Macofe",
 			"Orlodrim",
-			"Gomoko"
+			"Gomoko",
+			"Wladek92"
 		]
 	},
-	"deletepagesforgood-desc": "Permet aux utilisateurs de supprimer des pages de façon permanente de la base de données en ajoutant un nouvel onglet de suppression à chaque page.",
+	"deletepagesforgood-desc": "Permet aux utilisateurs de supprimer des pages de façon permanente de la base de données en ajoutant un nouvel onglet de suppression à chaque page",
 	"deletepagesforgood-deletepagetitle": "Supprimer « $1 » de façon permanente",
 	"deletepagesforgood-delete_permanently": "Supprimer définitivement la page",
 	"deletepagesforgood-del_impossible": "Cette page ne peut pas être supprimée définitivement",
