@@ -4,10 +4,11 @@
 			"Robby",
 			"Raymond",
 			"Pikne",
-			"Purodha"
+			"Purodha",
+			"Umherirrender"
 		]
 	},
-	"deletepagesforgood-extensionname": "{{optional}}",
+	"deletepagesforgood-extensionname": "{{name}}",
 	"deletepagesforgood-desc": "{{desc|name=DeletePagesForGood|url=https://www.mediawiki.org/wiki/Extension:DeletePagesForGood}}",
 	"deletepagesforgood-deletepagetitle": "This message is for saying: you are about to permanently delete the current page.",
 	"deletepagesforgood-delete_permanently": "This message is under the action menu.\n\nIt deletes the current page permanently.",
