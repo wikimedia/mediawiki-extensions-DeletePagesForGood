@@ -4,7 +4,7 @@
  *
  * Based on DeletePagePermanently
  *
- * GPL-2.0+
+ * GPL-2.0-or-later
  *
  * BE CAREFUL WHEN USING THIS EXTENSION. ONCE A PAGE IS DELETED, IT CAN NOT BE RESTORED ANY MORE.
 */

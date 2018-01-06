@@ -5,7 +5,7 @@
 	"author": "Paladox",
 	"url": "https://www.mediawiki.org/wiki/Extension:DeletePagesForGood",
 	"descriptionmsg": "deletepagesforgood-desc",
-	"license-name": "GPL-2.0+",
+	"license-name": "GPL-2.0-or-later",
 	"type": "other",
 	"GroupPermissions": {
 		"*": {
