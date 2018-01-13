@@ -3,19 +3,17 @@
 class ActionDeletePagePermanently extends FormAction {
 
 	public static function AddSkinHook( SkinTemplate &$sktemplate, array &$links ) {
-		if ( !$sktemplate->getUser()->isAllowed( 'deleteperm' ) ) {
-			return false;
-		}
+		if ( $sktemplate->getUser()->isAllowed( 'deleteperm' ) ) {
+			$title = $sktemplate->getRelevantTitle();
+			$action = self::getActionName( $sktemplate );
 
-		$title = $sktemplate->getRelevantTitle();
-		$action = self::getActionName( $sktemplate );
-
-		if ( self::canDeleteTitle( $title ) ) {
-			$links['actions']['delete_page_permanently'] = [
-				'class' => ( $action === 'delete_page_permanently' ) ? 'selected' : false,
-				'text' => $sktemplate->msg( 'deletepagesforgood-delete_permanently' )->text(),
-				'href' => $title->getLocalUrl( 'action=delete_page_permanently' )
-			];
+			if ( self::canDeleteTitle( $title ) ) {
+				$links['actions']['delete_page_permanently'] = [
+					'class' => ( $action === 'delete_page_permanently' ) ? 'selected' : false,
+					'text' => $sktemplate->msg( 'deletepagesforgood-delete_permanently' )->text(),
+					'href' => $title->getLocalUrl( 'action=delete_page_permanently' )
+				];
+			}
 		}
 
 		return true;
