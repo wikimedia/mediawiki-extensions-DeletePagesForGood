@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"LNDDYL"
+			"LNDDYL",
+			"Kly"
 		]
 	},
+	"deletepagesforgood-desc": "透過在任一頁面添加新的刪除分頁，來允許使用者從資料庫裡永久刪除頁面",
+	"deletepagesforgood-deletepagetitle": "永久刪除「$1」",
 	"deletepagesforgood-delete_permanently": "永久刪除頁面",
+	"deletepagesforgood-del_impossible": "此頁面不可永久刪除",
+	"deletepagesforgood-ask_deletion": "您確定真的要永久刪除此頁面嗎？所有的版本與日誌項目將會一同刪除，而且無法在刪除後做出還原。",
 	"deletepagesforgood-yes": "確定",
 	"deletepagesforgood-del_done": "此頁面已被永久刪除。",
 	"right-deleteperm": "永久刪除頁面",
