@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sujiniku"
+			"Sujiniku",
+			"Yusuke1109"
 		]
 	},
-	"deletepagesforgood-yes": "はい"
+	"deletepagesforgood-desc": "各ページに新しい削除タブを追加することで、データベースから完全にページを削除することができます",
+	"deletepagesforgood-deletepagetitle": "「$1」を完全に削除",
+	"deletepagesforgood-delete_permanently": "ページを完全に削除する",
+	"deletepagesforgood-del_impossible": "このページは完全に削除することはできません",
+	"deletepagesforgood-ask_deletion": "このページを完全に削除してもよろしいですか?すべてのバージョンとログエントリが削除されます。完了後にこのプロセスを取り消す機会はありません。",
+	"deletepagesforgood-yes": "はい",
+	"deletepagesforgood-del_done": "ページは完全に削除されました。",
+	"right-deleteperm": "ページを完全に削除する",
+	"action-deleteperm": "ページを完全に削除する"
 }
