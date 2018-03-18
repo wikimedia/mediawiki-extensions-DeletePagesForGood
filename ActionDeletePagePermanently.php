@@ -31,6 +31,10 @@ class ActionDeletePagePermanently extends FormAction {
 		return '';
 	}
 
+	protected function usesOOUI() {
+		return true;
+	}
+
 	public static function canDeleteTitle( Title $title ) {
 		global $wgDeletePagesForGoodNamespaces;
 
