@@ -74,33 +74,33 @@ class ActionDeletePagePermanently extends FormAction {
 		 * First delete entries, which are in direct relation with the page:
 		 */
 
-		# delete redirect...
+		# Delete redirect...
 		$dbw->delete( 'redirect', [ 'rd_from' => $id ], __METHOD__ );
 
-		# delete external link...
+		# Delete external links...
 		$dbw->delete( 'externallinks', [ 'el_from' => $id ], __METHOD__ );
 
-		# delete language link...
+		# Delete language links...
 		$dbw->delete( 'langlinks', [ 'll_from' => $id ], __METHOD__ );
 
 		if ( $GLOBALS['wgDBtype'] !== "postgres" ) {
-			# delete search index...
+			# Delete search index...
 			$dbw->delete( 'searchindex', [ 'si_page' => $id ], __METHOD__ );
 		}
 
 		# Delete restrictions for the page
 		$dbw->delete( 'page_restrictions', [ 'pr_page' => $id ], __METHOD__ );
 
-		# Delete page Links
+		# Delete page links
 		$dbw->delete( 'pagelinks', [ 'pl_from' => $id ], __METHOD__ );
 
-		# delete category links
+		# Delete category links
 		$dbw->delete( 'categorylinks', [ 'cl_from' => $id ], __METHOD__ );
 
-		# delete template links
+		# Delete template links
 		$dbw->delete( 'templatelinks', [ 'tl_from' => $id ], __METHOD__ );
 
-		# read text entries for all revisions and delete them.
+		# Read text entries for all revisions and delete them.
 		$res = $dbw->select( 'revision', 'rev_text_id', "rev_page=$id" );
 
 		foreach ( $res as $row ) {
@@ -111,7 +111,7 @@ class ActionDeletePagePermanently extends FormAction {
 		# In the table 'revision' : Delete all the revision of the page where 'rev_page' = $id
 		$dbw->delete( 'revision', [ 'rev_page' => $id ], __METHOD__ );
 
-		# delete image links
+		# Delete image links
 		$dbw->delete( 'imagelinks', [ 'il_from' => $id ], __METHOD__ );
 
 		/*
@@ -124,7 +124,7 @@ class ActionDeletePagePermanently extends FormAction {
 			'rc_title' => $t
 		], __METHOD__ );
 
-		# read text entries for all archived pages and delete them.
+		# Read text entries for all archived pages and delete them.
 		$res = $dbw->select( 'archive', 'ar_text_id', [
 			'ar_namespace' => $ns,
 			'ar_title' => $t
@@ -135,7 +135,7 @@ class ActionDeletePagePermanently extends FormAction {
 			$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
 		}
 
-		# Clean archive entries...
+		# Clean up archive entries...
 		$dbw->delete( 'archive', [
 			'ar_namespace' => $ns,
 			'ar_title' => $t
@@ -150,6 +150,11 @@ class ActionDeletePagePermanently extends FormAction {
 		# Clean up watchlist...
 		$dbw->delete( 'watchlist', [
 			'wl_namespace' => $ns,
+			'wl_title' => $t
+		], __METHOD__ );
+
+		$dbw->delete( 'watchlist', [
+			'wl_namespace' => MWNamespace::getAssociated( $ns ),
 			'wl_title' => $t
 		], __METHOD__ );
 
@@ -172,7 +177,7 @@ class ActionDeletePagePermanently extends FormAction {
 		}
 
 		/*
-		 * If an image is beeing deleted, some extra work needs to be done
+		 * If an image is being deleted, some extra work needs to be done
 		 */
 		if ( $ns == NS_FILE ) {
 			$file = wfFindFile( $t );
@@ -204,7 +209,7 @@ class ActionDeletePagePermanently extends FormAction {
 				}
 			}
 
-			# clean the filearchive for the given filename:
+			# Clean the filearchive for the given filename:
 			$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
 
 			# Delete old db entries of the image:
