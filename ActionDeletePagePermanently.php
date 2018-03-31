@@ -84,7 +84,7 @@ class ActionDeletePagePermanently extends FormAction {
 		# delete language link...
 		$dbw->delete( 'langlinks', array( 'll_from' => $id ), __METHOD__ );
 
-		if ( !$GLOBALS['wgDBtype'] == "postgres" ) {
+		if ( $GLOBALS['wgDBtype'] !== "postgres" ) {
 			# delete search index...
 			$dbw->delete( 'searchindex', array( 'si_page' => $id ), __METHOD__ );
 		}
