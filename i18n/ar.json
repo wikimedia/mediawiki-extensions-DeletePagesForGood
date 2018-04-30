@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد"
+		]
+	},
+	"deletepagesforgood-desc": "يسمح للمستخدمين بحذف الصفحات بشكل دائم من قاعدة البيانات عن طريق إضافة علامة تبويب حذف جديدة إلى كل صفحة",
+	"deletepagesforgood-deletepagetitle": "حذف \"$1\" نهائيا",
+	"deletepagesforgood-delete_permanently": "حذف الصفحة بشكل دائم",
+	"deletepagesforgood-del_impossible": "لا يمكن حذف هذه الصفحة نهائيا",
+	"deletepagesforgood-ask_deletion": "هل أنت متأكد من أنك تريد حذف هذه الصفحة بشكل دائم؟ سيتم حذف جميع إصدارات وإدخالات السجلات، لا توجد فرصة للتراجع عن هذه العملية بعد الانتهاء.",
+	"deletepagesforgood-yes": "نعم",
+	"deletepagesforgood-del_done": "تم حذف الصفحة نهائيا.",
+	"right-deleteperm": "حذف الصفحات بشكل دائم",
+	"action-deleteperm": "حذف الصفحات بشكل دائم"
+}
