@@ -1,30 +1,36 @@
-/*jshint node:true */
+/*!
+ * Grunt file
+ *
+ * @package DeletePagesForGood
+ */
+
+/* eslint-env node */
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'extension.json' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-jsonlint' );
+
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
-	grunt.loadNpmTasks( 'grunt-jscs' );
+	grunt.loadNpmTasks( 'grunt-jsonlint' );
+	grunt.loadNpmTasks( 'grunt-eslint' );
 
 	grunt.initConfig( {
-		jshint: {
-			all: [
-				'**/*.js',
-				'!node_modules/**'
-			]
-		},
-		jscs: {
-			src: '<%= jshint.all %>'
-		},
 		banana: conf.MessagesDirs,
 		jsonlint: {
 			all: [
 				'**/*.json',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
+			]
+		},
+		eslint: {
+			all: [
+				'**/*.js',
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'jshint', 'jscs', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'lint', [ 'eslint', 'jsonlint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'lint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
 };
