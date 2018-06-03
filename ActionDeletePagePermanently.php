@@ -17,8 +17,6 @@ class ActionDeletePagePermanently extends FormAction {
 				'href' => $title->getLocalUrl( 'action=delete_page_permanently' )
 			];
 		}
-
-		return true;
 	}
 
 	public function getName() {
