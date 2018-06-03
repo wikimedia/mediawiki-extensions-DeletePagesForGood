@@ -15,8 +15,6 @@ class ActionDeletePagePermanently extends FormAction {
 				];
 			}
 		}
-
-		return true;
 	}
 
 	public function getName() {
