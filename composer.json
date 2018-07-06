@@ -11,7 +11,9 @@
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
-			"name": "Paladox"
+			"name": "Paladox",
+			"name": "Wolfgang Stöttinger",
+			"name": "Ludovic Mouton"
 		}
 	],
 	"support": {
