@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"01miki10"
+			"01miki10",
+			"Valtlait"
 		]
 	},
 	"deletepagesforgood-desc": "Sallii käyttäjien poistaa sivuja pysyvästi tietokannasta lisäämällä uuden poistovälilehden jokaiselle sivulle.",
-	"deletepagesforgood-deletepagetitle": "Poista pysyvästi \"$1\"",
+	"deletepagesforgood-deletepagetitle": "Poista pysyvästi ”$1”",
 	"deletepagesforgood-delete_permanently": "Poista sivu pysyvästi",
 	"deletepagesforgood-del_impossible": "Tätä sivua ei voida poistaa pysyvästi",
 	"deletepagesforgood-ask_deletion": "Oletko varma, että haluat poistaa sivun pysyvästi? Kaikki versiot ja lokitiedot poistetaan. Toimenpidettä ei voi kumota sen päätyttyä.",
