@@ -4,6 +4,11 @@
 			"Joetaras"
 		]
 	},
+	"deletepagesforgood-desc": "Permette a le utinde de scangellà le pàggene pe sembre da 'u database, aggiungenne 'na scheda nove Scangìlle jndr'à ogne pàgene.",
+	"deletepagesforgood-deletepagetitle": "Scangìlle pe sembre \"$1\"",
+	"deletepagesforgood-delete_permanently": "Scangìlle 'a pàgene pe sembre",
+	"deletepagesforgood-del_impossible": "Sta èàgene non ge pò essere scangellate pe sembre",
+	"deletepagesforgood-ask_deletion": "Sì secure ca vuè ccu scangille sta pàgene pe sembre? Tutte le versiune e le vôsce d'u reggistre avènene scettate. Non ge ste possibbeletà de annullà stu processe apprisse 'u combletamende sue.",
 	"deletepagesforgood-yes": "Sìne",
 	"deletepagesforgood-del_done": "?a pàgene ha state scangellate pe sembre.",
 	"right-deleteperm": "Scangìlle le pàggene pe sembre",
