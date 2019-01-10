@@ -5,7 +5,8 @@
 			"Raymond",
 			"Pikne",
 			"Purodha",
-			"Umherirrender"
+			"Umherirrender",
+			"Vlad5250"
 		]
 	},
 	"deletepagesforgood-extensionname": "{{name}}",
@@ -13,7 +14,7 @@
 	"deletepagesforgood-deletepagetitle": "This message is for saying: you are about to permanently delete the current page.",
 	"deletepagesforgood-delete_permanently": "This message is under the action menu.\n\nIt deletes the current page permanently.",
 	"deletepagesforgood-del_impossible": "This messages says that there is an error and that the page cannot be deleted permanently.",
-	"deletepagesforgood-ask_deletion": "This message is givin you a warrning before you continue and says are you sure you want to continue deleting this page permanently.",
+	"deletepagesforgood-ask_deletion": "This message is giving you a warning before you continue and says are you sure you want to continue deleting this page permanently.",
 	"deletepagesforgood-yes": "{{Identical|Yes}}",
 	"deletepagesforgood-del_done": "This message says that the page was successfully deleted permanently.",
 	"right-deleteperm": "{{doc-right|deleteperm}}",
