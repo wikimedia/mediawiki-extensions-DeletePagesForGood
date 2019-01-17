@@ -7,5 +7,8 @@
 	"deletepagesforgood-desc": "Дазваляе ўдзельнікам стала выдаляць старонкі з базы зьвестак праз даданьне новай закладкі выдаленьня да кожнай старонкі",
 	"deletepagesforgood-deletepagetitle": "Стала выдаліць «$1»",
 	"deletepagesforgood-delete_permanently": "Выдаліць старонку назаўжды",
-	"deletepagesforgood-del_impossible": "Гэтая старонка ня можа быць стала выдаленая"
+	"deletepagesforgood-del_impossible": "Гэтая старонка ня можа быць стала выдаленая",
+	"deletepagesforgood-ask_deletion": "Вы ўпэўненыя, што хочаце выдаліць гэтую старонку назаўжды? Усе вэрсіі і журнальныя запісы будуць выдаленыя. Пасьля завяршэньня немагчыма будзе скасаваць гэтае дзеяньне.",
+	"deletepagesforgood-yes": "Так",
+	"deletepagesforgood-del_done": "Гэтая старонка была незваротна выдаленая."
 }
