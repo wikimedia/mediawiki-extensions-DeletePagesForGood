@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
+	"deletepagesforgood-extensionname": "حذف الصفحات للأبد",
 	"deletepagesforgood-desc": "يسمح للمستخدمين بحذف الصفحات بشكل دائم من قاعدة البيانات عن طريق إضافة علامة تبويب حذف جديدة إلى كل صفحة",
 	"deletepagesforgood-deletepagetitle": "حذف \"$1\" نهائيا",
 	"deletepagesforgood-delete_permanently": "حذف الصفحة بشكل دائم",
