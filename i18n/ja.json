@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sujiniku",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Shirayuki"
 		]
 	},
 	"deletepagesforgood-desc": "各ページに新しい削除タブを追加することで、データベースから完全にページを削除することができます",
@@ -12,6 +13,6 @@
 	"deletepagesforgood-ask_deletion": "このページを完全に削除してもよろしいですか?すべてのバージョンとログエントリが削除されます。完了後にこのプロセスを取り消す機会はありません。",
 	"deletepagesforgood-yes": "はい",
 	"deletepagesforgood-del_done": "ページは完全に削除されました。",
-	"right-deleteperm": "ページを完全に削除する",
-	"action-deleteperm": "ページを完全に削除する"
+	"right-deleteperm": "ページを完全に削除",
+	"action-deleteperm": "ページの完全な削除"
 }
