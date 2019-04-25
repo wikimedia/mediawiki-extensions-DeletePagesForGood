@@ -64,7 +64,8 @@
 			"14": true,
 			"15": true,
 			"_merge_strategy": "array_plus"
-		}
+		},
+		"DeletePagesForGoodDeleteContent": true
 	},
 	"manifest_version": 1
 }
