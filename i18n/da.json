@@ -4,6 +4,8 @@
 			"Saederup92"
 		]
 	},
+	"deletepagesforgood-delete_permanently": "Slet siden permanent",
+	"deletepagesforgood-del_impossible": "Denne side kan ikke blive slettet permanent",
 	"deletepagesforgood-yes": "Ja",
 	"right-deleteperm": "Slet sider permanent",
 	"action-deleteperm": "slet sider permanent"
