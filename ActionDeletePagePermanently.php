@@ -252,7 +252,7 @@ class ActionDeletePagePermanently extends FormAction {
 				if ( !is_object( $cat ) ) {
 					// Blank error to allow us to continue
 				} else {
-					$cat->refreshCounts();
+					DeferredUpdates::addCallableUpdate( [ $cat, 'refreshCounts' ] );
 				}
 			}
 		}
