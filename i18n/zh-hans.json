@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"神樂坂秀吉"
 		]
 	},
 	"deletepagesforgood-desc": "通过在每个页面添加新的删除标签允许用户从数据库永久删除页面。",
 	"deletepagesforgood-deletepagetitle": "永久删除“$1”",
 	"deletepagesforgood-delete_permanently": "永久删除页面",
-	"deletepagesforgood-del_impossible": "此页面不能被永久删除",
+	"deletepagesforgood-del_impossible": "此页面不能永久删除",
 	"deletepagesforgood-ask_deletion": "您确定要永久删除此页面么？所有版本和日志记录将被删除。完成后没有撤销的余地。",
 	"deletepagesforgood-yes": "是",
 	"deletepagesforgood-del_done": "页面已被永久删除。",
