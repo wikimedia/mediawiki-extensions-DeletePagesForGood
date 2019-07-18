@@ -6,12 +6,12 @@
 		]
 	},
 	"deletepagesforgood-desc": "Позволява на потребителите постоянно да изтриват страници от бази. Добавя нова закладка във всяка страница.",
-	"deletepagesforgood-deletepagetitle": "Постоянно изтриване на „$1“",
-	"deletepagesforgood-delete_permanently": "Постоянно изтриване на страницата",
-	"deletepagesforgood-del_impossible": "Тази страница не може да бъде изтрита постоянно",
-	"deletepagesforgood-ask_deletion": "Сигурни ли сте, че искате постоянно да изтриете страницата? Всички преработки и записите в дневници ще бъдат изтрити. Постъпката е безвъзвратна.",
+	"deletepagesforgood-deletepagetitle": "Безвъзвратно изтриване на „$1“",
+	"deletepagesforgood-delete_permanently": "Безвъзвратно изтриване на страницата",
+	"deletepagesforgood-del_impossible": "Тази страница не може да бъде изтрита безвъзвратно",
+	"deletepagesforgood-ask_deletion": "Сигурни ли сте, че искате безвъзвратно да изтриете страницата? Всички преработки и записите в дневници ще бъдат изтрити. Постъпката е безвъзвратна.",
 	"deletepagesforgood-yes": "Да",
-	"deletepagesforgood-del_done": "Страницата е постоянно изтрита.",
-	"right-deleteperm": "Постоянно изтриване на страници",
-	"action-deleteperm": "постоянно изтриване на страници"
+	"deletepagesforgood-del_done": "Страницата е безвъзвратно изтрита.",
+	"right-deleteperm": "Безвъзвратно изтриване на страници",
+	"action-deleteperm": "безвъзвратно изтриване на страници"
 }
