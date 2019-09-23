@@ -3,10 +3,11 @@
 		"authors": [
 			"Chrumps",
 			"Mateon1",
-			"Woytecr"
+			"Woytecr",
+			"Rail"
 		]
 	},
-	"deletepagesforgood-desc": "Pozwól użytkownikom usuwać strony na stałe poprzez dodawanie nowej karty usuwania do każdej strony.",
+	"deletepagesforgood-desc": "Pozwól użytkownikom usuwać strony na stałe poprzez dodawanie nowej karty usuwania do każdej strony",
 	"deletepagesforgood-deletepagetitle": "Trwale usuń „$1”",
 	"deletepagesforgood-delete_permanently": "Usuń stronę na stałe",
 	"deletepagesforgood-del_impossible": "Ta strona nie może być trwale usunięta",
