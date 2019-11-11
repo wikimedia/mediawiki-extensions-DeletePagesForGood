@@ -5,6 +5,7 @@
 			"Jon Harald Søby"
 		]
 	},
+	"deletepagesforgood-extensionname": "Slett sider for godt",
 	"deletepagesforgood-desc": "Lar brukere slette sider fra databasen permanent med en ny fane på hver side.",
 	"deletepagesforgood-deletepagetitle": "Slett «$1» permanent",
 	"deletepagesforgood-delete_permanently": "Slett side for godt",
