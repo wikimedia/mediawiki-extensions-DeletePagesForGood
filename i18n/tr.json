@@ -1,14 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"KorkmazO"
+			"KorkmazO",
+			"BaRaN6161 TURK"
 		]
 	},
 	"deletepagesforgood-desc": "Kullanıcıların her sayfaya yeni bir silme sekmesi ekleyerek sayfaları veritabanından kalıcı olarak silmesine izin ver.",
+	"deletepagesforgood-deletepagetitle": "\"$1\" kalıcı olarak sil",
 	"deletepagesforgood-delete_permanently": "Sayfayı kalıcı olarak sil",
 	"deletepagesforgood-del_impossible": "Bu sayfa kalıcı olarak silinemez",
 	"deletepagesforgood-ask_deletion": "Bu sayfayı kalıcı olarak silmek istediğinizden emin misiniz? Tüm versiyonlar ve kayıtlı girişler silinecektir. Bu prosesin tamamlandıktan sonra geri alınması mümkün değildir.",
 	"deletepagesforgood-yes": "Evet",
+	"deletepagesforgood-del_done": "Sayfa kalıcı olarak silindi.",
 	"right-deleteperm": "Sayfaları kalıcı olarak sil",
 	"action-deleteperm": "Sayfaları kalıcı olarak sil"
 }
