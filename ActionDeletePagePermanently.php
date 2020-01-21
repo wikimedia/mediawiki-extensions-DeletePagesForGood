@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Category\Category;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
@@ -90,60 +89,29 @@ class ActionDeletePagePermanently extends FormAction {
 		$ns = $title->getNamespace();
 		$t = $title->getDBkey();
 		$id = $title->getArticleID();
-		$cats = $title->getParentCategories();
 		$user = $this->getContext()->getUser();
 		$reason = 'Page being permanently deleted';
+		$error = null;
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		$dbw->startAtomic( __METHOD__, $dbw::ATOMIC_CANCELABLE );
 
 		/*
-		 * First delete entries, which are in direct relation with the page:
+		 * First, delete the page normally:
 		 */
-
-		# Delete redirect...
-		$dbw->delete( 'redirect', [ 'rd_from' => $id ], __METHOD__ );
-
-		# Delete external links...
-		$dbw->delete( 'externallinks', [ 'el_from' => $id ], __METHOD__ );
-
-		# Delete language links...
-		$dbw->delete( 'langlinks', [ 'll_from' => $id ], __METHOD__ );
-
-		if ( $GLOBALS['wgDBtype'] !== "postgres" && $GLOBALS['wgDBtype'] !== "sqlite" ) {
-			# Delete search index...
-			$dbw->delete( 'searchindex', [ 'si_page' => $id ], __METHOD__ );
-		}
-
-		# Delete restrictions for the page
-		$dbw->delete( 'page_restrictions', [ 'pr_page' => $id ], __METHOD__ );
-
-		# Delete page links
-		$dbw->delete( 'pagelinks', [ 'pl_from' => $id ], __METHOD__ );
-
-		# Delete category links
-		$dbw->delete( 'categorylinks', [ 'cl_from' => $id ], __METHOD__ );
-
-		# Delete template links
-		$dbw->delete( 'templatelinks', [ 'tl_from' => $id ], __METHOD__ );
+		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromID( $id );
+		$page->doDeleteArticleReal( $reason, $user, false, null, $error, null, [], 'delete', true );
 
 		// $wgMultiContentRevisionSchemaMigrationStage existed between 1.32 (included) and 1.39 (excluded)
 		$mcrSchemaMigrationStage = isset( $GLOBALS['wgMultiContentRevisionSchemaMigrationStage'] )
 			? $GLOBALS['wgMultiContentRevisionSchemaMigrationStage']
 			: 0;
 
-		// Before 1.32, revision.rev_text_id existed, but $mcrSchemaMigrationStage === 0
+		// Before 1.32, archive.ar_text_id existed, but $mcrSchemaMigrationStage === 0
 		if ( ( $mcrSchemaMigrationStage & SCHEMA_COMPAT_WRITE_OLD ) ||
-			$dbw->fieldExists( 'revision', 'rev_text_id', __METHOD__ )
+			$dbw->fieldExists( 'archive', 'ar_text_id', __METHOD__ )
 		) {
-			# Read text entries for all revisions and delete them.
-			$res = $dbw->select( 'revision', 'rev_text_id', "rev_page=$id", __METHOD__ );
-			foreach ( $res as $row ) {
-				$value = $row->rev_text_id;
-				$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
-			}
-
 			# Read text entries for all archived pages and delete them.
 			$arRes = $dbw->select(
 				'archive',
@@ -160,31 +128,13 @@ class ActionDeletePagePermanently extends FormAction {
 			}
 		}
 
-		// From 1.35, revision.rev_text_id does not exist, and from 1.39 $mcrSchemaMigrationStage === 0
+		// From 1.35, archive.ar_text_id does not exist, and from 1.39 $mcrSchemaMigrationStage === 0
 		if ( ( $mcrSchemaMigrationStage & SCHEMA_COMPAT_WRITE_NEW ) ||
-			!$dbw->fieldExists( 'revision', 'rev_text_id', __METHOD__ )
+			!$dbw->fieldExists( 'archive', 'ar_text_id', __METHOD__ )
 		) {
 			# Delete slot, content, and text entries for all revisions.
 			$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
 			$blobStore = MediaWikiServices::getInstance()->getBlobStore();
-			$revQuery = $revisionStore->getQueryInfo();
-
-			$res = $dbw->select(
-				$revQuery['tables'],
-				$revQuery['fields'],
-				"rev_page=$id",
-				__METHOD__,
-				[],
-				$revQuery['joins']
-			);
-			foreach ( $res as $row ) {
-				$rev = $revisionStore->newRevisionFromRow( $row );
-				$this->deleteSlotsPermanently( $dbw,
-					$rev->getSlots()->getSlots(),
-					$rev->getId(),
-					$blobStore
-				);
-			}
 
 			$arRevQuery = $revisionStore->getArchiveQueryInfo();
 			$arRes = $dbw->select(
@@ -207,12 +157,6 @@ class ActionDeletePagePermanently extends FormAction {
 				);
 			}
 		}
-
-		# In the table 'revision' : Delete all the revision of the page where 'rev_page' = $id
-		$dbw->delete( 'revision', [ 'rev_page' => $id ], __METHOD__ );
-
-		# Delete image links
-		$dbw->delete( 'imagelinks', [ 'il_from' => $id ], __METHOD__ );
 
 		/*
 		 * then delete entries which are not in direct relation with the page:
@@ -249,26 +193,8 @@ class ActionDeletePagePermanently extends FormAction {
 			'wl_title' => $t
 		], __METHOD__ );
 
-		# In the table 'page' : Delete the page entry
-		$dbw->delete( 'page', [ 'page_id' => $id ], __METHOD__ );
-
 		/*
-		 * If the article belongs to a category, update category counts
-		 */
-		if ( !empty( $cats ) ) {
-			foreach ( $cats as $parentcat => $currentarticle ) {
-				$catname = preg_split( '/:/', $parentcat, 2 );
-				$cat = Category::newFromName( $catname[1] );
-				if ( !is_object( $cat ) ) {
-					// Blank error to allow us to continue
-				} else {
-					DeferredUpdates::addCallableUpdate( [ $cat, 'refreshCounts' ] );
-				}
-			}
-		}
-
-		/*
-		 * If an image is being deleted, some extra work needs to be done
+		 * If an image is being deleted, clean the filearchive
 		 */
 		if ( $ns == NS_FILE ) {
 			$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $t );
