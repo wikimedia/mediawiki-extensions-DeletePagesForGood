@@ -11,6 +11,9 @@
 	"descriptionmsg": "deletepagesforgood-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.28.0"
+	},
 	"GroupPermissions": {
 		"*": {
 			"deleteperm": false

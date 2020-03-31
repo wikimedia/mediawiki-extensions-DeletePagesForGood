@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class ActionDeletePagePermanently extends FormAction {
 
 	public static function AddSkinHook( SkinTemplate &$sktemplate, array &$links ) {
@@ -221,7 +223,7 @@ class ActionDeletePagePermanently extends FormAction {
 
 			// $dbw->endAtomic( __METHOD__ );
 
-			$linkCache = LinkCache::singleton();
+			$linkCache = MediaWikiServices::getInstance()->getLinkCache();
 			$linkCache->clear();
 		}
 		$dbw->endAtomic( __METHOD__ );
