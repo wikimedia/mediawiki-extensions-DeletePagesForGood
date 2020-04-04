@@ -180,7 +180,12 @@ class ActionDeletePagePermanently extends FormAction {
 		 * If an image is being deleted, some extra work needs to be done
 		 */
 		if ( $ns == NS_FILE ) {
-			$file = wfFindFile( $t );
+			if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
+				// MediaWiki 1.34+
+				$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $t );
+			} else {
+				$file = wfFindFile( $t );
+			}
 
 			if ( $file ) {
 				# Get all filenames of old versions:
