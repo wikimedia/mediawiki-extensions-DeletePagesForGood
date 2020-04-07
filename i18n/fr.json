@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Gomoko",
 			"Macofe",
 			"Orlodrim",
-			"Gomoko",
-			"Wladek92",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Wladek92"
 		]
 	},
 	"deletepagesforgood-desc": "Permet aux utilisateurs de supprimer des pages de façon permanente de la base de données en ajoutant un nouvel onglet de suppression à chaque page",

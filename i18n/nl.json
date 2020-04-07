@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand",
-			"Mainframe98"
+			"Mainframe98",
+			"Siebrand"
 		]
 	},
 	"deletepagesforgood-desc": "Maakt het mogelijk om pagina's definitief uit de database te verwijderen door een nieuw verwijder tabblad aan iedere pagina toe te voegen.",

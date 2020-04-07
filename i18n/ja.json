@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Shirayuki",
 			"Sujiniku",
-			"Yusuke1109",
-			"Shirayuki"
+			"Yusuke1109"
 		]
 	},
 	"deletepagesforgood-desc": "各ページに新しい削除タブを追加することで、データベースから完全にページを削除することができます",

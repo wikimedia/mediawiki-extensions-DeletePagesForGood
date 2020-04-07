@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"LNDDYL",
-			"Kly"
+			"Kly",
+			"LNDDYL"
 		]
 	},
 	"deletepagesforgood-desc": "透過在任一頁面添加新的刪除分頁，來允許使用者從資料庫裡永久刪除頁面",
