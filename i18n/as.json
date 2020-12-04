@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Simbu123"
+		]
+	},
+	"deletepagesforgood-delete_permanently": "পৃষ্ঠা স্থায়ীৰূপে বিলোপ কৰক",
+	"deletepagesforgood-del_impossible": "এই পৃষ্ঠাস্থায়ীভাৱে বিলোপ কৰিব নোৱাৰি",
+	"deletepagesforgood-del_done": "পৃষ্ঠাটো স্থায়ীভাৱে বিলোপ কৰা হ'ল।",
+	"action-deleteperm": "পৃষ্ঠাসমূহ স্থায়ীভাৱে বিলোপ কৰক"
+}
