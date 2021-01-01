@@ -22,6 +22,9 @@ module.exports = function ( grunt ) {
 			]
 		},
 		eslint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'**/*.js',
 				'!node_modules/**',
