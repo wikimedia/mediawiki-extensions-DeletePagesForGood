@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"deletepagesforgood-desc": "Permite que os usuários excluam páginas permanentemente do banco de dados, adicionando uma nova aba de exclusão a cada página",
