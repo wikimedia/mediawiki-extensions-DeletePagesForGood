@@ -5,9 +5,11 @@
 			"Macofe",
 			"Orlodrim",
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
+	"deletepagesforgood-extensionname": "DeletePagesForGood",
 	"deletepagesforgood-desc": "Permet aux utilisateurs de supprimer des pages de façon permanente de la base de données en ajoutant un nouvel onglet de suppression à chaque page",
 	"deletepagesforgood-deletepagetitle": "Supprimer « $1 » de façon permanente",
 	"deletepagesforgood-delete_permanently": "Supprimer définitivement la page",
