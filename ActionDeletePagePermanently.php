@@ -4,7 +4,11 @@ use MediaWiki\MediaWikiServices;
 
 class ActionDeletePagePermanently extends FormAction {
 
-	public static function AddSkinHook( SkinTemplate &$sktemplate, array &$links ) {
+	/**
+	 * @param SkinTemplate $sktemplate
+	 * @param array &$links
+	 */
+	public static function onAddSkinHook( SkinTemplate $sktemplate, array &$links ) {
 		if ( $sktemplate->getUser()->isAllowed( 'deleteperm' ) ) {
 			$title = $sktemplate->getRelevantTitle();
 			$action = self::getActionName( $sktemplate );
@@ -19,22 +23,30 @@ class ActionDeletePagePermanently extends FormAction {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getName() {
 		return 'delete_page_permanently';
 	}
 
+	/** @inheritDoc */
 	public function doesWrites() {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function getDescription() {
 		return '';
 	}
 
+	/** @inheritDoc */
 	protected function usesOOUI() {
 		return true;
 	}
 
+	/**
+	 * @param Title $title
+	 * @return bool
+	 */
 	public static function canDeleteTitle( Title $title ) {
 		global $wgDeletePagesForGoodNamespaces;
 
@@ -50,6 +62,10 @@ class ActionDeletePagePermanently extends FormAction {
 		}
 	}
 
+	/**
+	 * @param mixed $data
+	 * @return bool|string[]
+	 */
 	public function onSubmit( $data ) {
 		if ( self::canDeleteTitle( $this->getTitle() ) ) {
 			$this->deletePermanently( $this->getTitle() );
@@ -60,6 +76,10 @@ class ActionDeletePagePermanently extends FormAction {
 		}
 	}
 
+	/**
+	 * @param Title $title
+	 * @return bool|string
+	 */
 	public function deletePermanently( Title $title ) {
 		$ns = $title->getNamespace();
 		$t = $title->getDBkey();
@@ -244,6 +264,9 @@ class ActionDeletePagePermanently extends FormAction {
 		return $this->msg( 'deletepagesforgood-deletepagetitle', $this->getTitle()->getPrefixedText() );
 	}
 
+	/**
+	 * @param HTMLForm $form
+	 */
 	protected function alterForm( HTMLForm $form ) {
 		$title = $this->getTitle();
 		$output = $this->getOutput();
@@ -258,10 +281,14 @@ class ActionDeletePagePermanently extends FormAction {
 		$form->setSubmitTextMsg( 'deletepagesforgood-yes' );
 	}
 
+	/** @inheritDoc */
 	public function getRestriction() {
 		return 'deleteperm';
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function onSuccess() {
 		$output = $this->getOutput();
 		$output->addHTML( $this->msg( 'deletepagesforgood-del_done' )->escaped() );
