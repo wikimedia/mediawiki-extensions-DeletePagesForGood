@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jeeputer",
 			"Reza1615"
 		]
 	},
-	"deletepagesforgood-yes": "بله"
+	"deletepagesforgood-deletepagetitle": "حذف دائمی «$1»",
+	"deletepagesforgood-delete_permanently": "حذف صفحه به‌صورت دائمی",
+	"deletepagesforgood-del_impossible": "این صفحه را نمی‌توان به‌صورت دائمی حذف کرد",
+	"deletepagesforgood-yes": "بله",
+	"right-deleteperm": "حذف دائمی صفحه‌ها",
+	"action-deleteperm": "حذف صفحه‌ها به‌صورت دائمی"
 }
