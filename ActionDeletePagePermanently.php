@@ -174,7 +174,9 @@ class ActionDeletePagePermanently extends FormAction {
 		], __METHOD__ );
 
 		$dbw->delete( 'watchlist', [
-			'wl_namespace' => MWNamespace::getAssociated( $ns ),
+			'wl_namespace' => MediaWikiServices::getInstance()
+				->getNamespaceInfo()
+				->getAssociated( $ns ),
 			'wl_title' => $t
 		], __METHOD__ );
 
