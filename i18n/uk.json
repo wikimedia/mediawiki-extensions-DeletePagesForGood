@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Dars",
-			"Piramidion"
+			"Piramidion",
+			"DDPAT"
 		]
 	},
-	"deletepagesforgood-desc": "Дозволить користувачам повністю видаляти сторінки з бази даних, шляхом додавання нової кладки видалення для кожної сторінки.",
+	"deletepagesforgood-extensionname": "DeletePagesForGood",
+	"deletepagesforgood-desc": "Дозволить користувачам повністю видаляти сторінки з бази даних, шляхом додавання нової вкладки видалення для кожної сторінки.",
 	"deletepagesforgood-deletepagetitle": "Остаточно вилучити «$1»",
 	"deletepagesforgood-delete_permanently": "Видалити сторінку назавжди",
 	"deletepagesforgood-del_impossible": "Цю сторінку неможливо видалити без можливості відновлення",
