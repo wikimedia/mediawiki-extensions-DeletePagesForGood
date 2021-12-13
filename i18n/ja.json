@@ -6,7 +6,7 @@
 			"Yusuke1109"
 		]
 	},
-	"deletepagesforgood-desc": "各ページに新しい削除タブを追加することで、データベースから完全にページを削除することができます",
+	"deletepagesforgood-desc": "各ページに新しい削除タブを追加することで、データベースから完全にページを削除できるようにする",
 	"deletepagesforgood-deletepagetitle": "「$1」を完全に削除",
 	"deletepagesforgood-delete_permanently": "ページを完全に削除する",
 	"deletepagesforgood-del_impossible": "このページは完全に削除することはできません",
