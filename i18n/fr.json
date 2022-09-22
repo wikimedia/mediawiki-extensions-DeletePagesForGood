@@ -11,12 +11,12 @@
 	},
 	"deletepagesforgood-extensionname": "DeletePagesForGood",
 	"deletepagesforgood-desc": "Permet aux utilisateurs de supprimer des pages de façon permanente de la base de données en ajoutant un nouvel onglet de suppression à chaque page",
-	"deletepagesforgood-deletepagetitle": "Supprimer « $1 » de façon permanente",
-	"deletepagesforgood-delete_permanently": "Supprimer définitivement la page",
+	"deletepagesforgood-deletepagetitle": "Supprimer « $1 » définitivement",
+	"deletepagesforgood-delete_permanently": "Supprimer la page définitivement",
 	"deletepagesforgood-del_impossible": "Cette page ne peut pas être supprimée définitivement",
-	"deletepagesforgood-ask_deletion": "Êtes-vous sûr de vouloir supprimer définitivement cette page ? Toutes les versions et toutes les entrées de journal seront supprimées. Une fois effectuée, cette opération ne peut être annulée.",
+	"deletepagesforgood-ask_deletion": "Êtes-vous sûr{{GENDER:||e}} de vouloir supprimer définitivement cette page ? Toutes les versions et toutes les entrées de journal seront supprimées. Une fois cette opération terminée, il n’y aura aucune chance de l’annuler.",
 	"deletepagesforgood-yes": "Oui",
 	"deletepagesforgood-del_done": "La page a été supprimée définitivement.",
-	"right-deleteperm": "Supprimer définitivement des pages",
-	"action-deleteperm": "supprimer définitivement des pages"
+	"right-deleteperm": "Supprimer des pages définitivement",
+	"action-deleteperm": "supprimer des pages définitivement"
 }
