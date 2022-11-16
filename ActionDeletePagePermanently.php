@@ -220,8 +220,7 @@ class ActionDeletePagePermanently extends FormAction {
 
 					try {
 						unlink( $path );
-					}
-					catch ( Exception $e ) {
+					} catch ( Exception $e ) {
 						return $e->getMessage();
 					}
 				}
