@@ -4,6 +4,13 @@
 			"Eleassar"
 		]
 	},
+	"deletepagesforgood-desc": "Uporabnikom omogoča trajen izbris strani iz podatkovne zbirke z novim zavihkom za brisanje, ki ga doda vsaki strani",
+	"deletepagesforgood-deletepagetitle": "Trajno izbriši »$1«",
 	"deletepagesforgood-delete_permanently": "Trajno izbriši stran",
-	"deletepagesforgood-yes": "Da"
+	"deletepagesforgood-del_impossible": "Te strani ni mogoče trajno izbrisati",
+	"deletepagesforgood-ask_deletion": "Ste prepričani, da želite trajno izbrisati to stran? Izbrisani bodo vse različice in dnevniški zapisi. Po zaključku tega postopka ni mogoče razveljaviti.",
+	"deletepagesforgood-yes": "Da",
+	"deletepagesforgood-del_done": "Stran je bila trajno izbrisana.",
+	"right-deleteperm": "Trajno brisanje strani",
+	"action-deleteperm": "trajno brisanje strani"
 }
