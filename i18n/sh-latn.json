@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"deletepagesforgood-desc": "Korisnicima omogućuje trajno brisanje stranica iz baze podataka. Dodaje novu karticu za brisanje svakoj stranici.",
+	"deletepagesforgood-deletepagetitle": "Trajno izbriši \"$1\"",
+	"deletepagesforgood-delete_permanently": "Trajno izbriši stranicu",
+	"deletepagesforgood-del_impossible": "Ovu stranicu nije moguće trajno izbrisati",
+	"deletepagesforgood-ask_deletion": "Jeste li sigurni da želite trajno izbrisati ovu stranicu? Bit će izbrisane sve verzije i unosi u dnevnik. Ne postoji mogućnost poništavanja.",
+	"deletepagesforgood-yes": "Da"
+}
