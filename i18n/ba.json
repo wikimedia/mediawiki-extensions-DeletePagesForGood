@@ -1,16 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sagan"
+			"Sagan",
+			"З. ӘЙЛЕ"
 		]
 	},
-	"deletepagesforgood-desc": "Биттәргә яңы ҡушымта өҫтәп ҡатнашыусылар биттәрен мәғлүмәттәр базаһынан кире ҡайтарылғыһыҙ итеп юйа ала.",
-	"deletepagesforgood-deletepagetitle": "«$1» кире ҡайтарылғыһығыҙ итеп юйырғы",
-	"deletepagesforgood-delete_permanently": "Кире ҡайтарылғыһығыҙ итеп юйырға",
-	"deletepagesforgood-del_impossible": "Был битте кире ҡайтарылғыһығыҙ итеп юйып булмай",
-	"deletepagesforgood-ask_deletion": "Битте кире ҡайтарылғыһыҙ итеп юйырға теләйһегеҙме?",
+	"deletepagesforgood-desc": "Һәр биткә яңы юйҙырыу ҡушымтаһы өҫтәп, мәғлүмәттәр базаһынан ҡатнашыусылар биттәрен тергеҙеп булмаҫлыҡ итеп юйҙырырға рөхсәт итә.",
+	"deletepagesforgood-deletepagetitle": "«$1» битен тергеҙеп булмаҫлыҡ итеп юйырға",
+	"deletepagesforgood-delete_permanently": "Тергеҙеп булмаҫлыҡ итеп юйырға",
+	"deletepagesforgood-del_impossible": "Был битте тергеҙеп булмаҫлыҡ итеп юйып булмай",
+	"deletepagesforgood-ask_deletion": "Битте тергеҙеп булмаҫлыҡ итеп юйырға теләйһегеҙме? Журналдағы барлыҡ өлгөләр һәм яҙмалар ҙа юйыласаҡ. Ғәмәл тамамланғандан һуң, процесты кире ҡайтарыу мөмкин түгел.",
 	"deletepagesforgood-yes": "Эйе",
-	"deletepagesforgood-del_done": "Бит кере ҡайтарылғыһыҙ итеп юйылды.",
-	"right-deleteperm": "Кире ҡайтарылғыһығыҙ итеп юйырға",
-	"action-deleteperm": "Кире ҡайтарылғыһығыҙ итеп юйырға"
+	"deletepagesforgood-del_done": "Бит тергеҙеп булмаҫлыҡ итеп юйылды.",
+	"right-deleteperm": "Биттәрҙе тергеҙеп булмаҫлыҡ итеп юйырға",
+	"action-deleteperm": "биттәрҙе тергеҙеп булмаҫлыҡ итеп юйырға"
 }
