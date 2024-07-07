@@ -89,7 +89,7 @@ class ActionDeletePagePermanently extends FormAction {
 		$id = $title->getArticleID();
 		$cats = $title->getParentCategories();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$dbw->startAtomic( __METHOD__ );
 
@@ -392,9 +392,9 @@ class ActionDeletePagePermanently extends FormAction {
 		$output = $this->getOutput();
 
 		$output->addBacklinkSubtitle( $title );
-		$form->addPreText( $this->msg( 'confirmdeletetext' )->parseAsBlock() );
+		$form->addPreHtml( $this->msg( 'confirmdeletetext' )->parseAsBlock() );
 
-		$form->addPreText(
+		$form->addPreHtml(
 			$this->msg( 'deletepagesforgood-ask_deletion' )->parseAsBlock()
 		);
 
