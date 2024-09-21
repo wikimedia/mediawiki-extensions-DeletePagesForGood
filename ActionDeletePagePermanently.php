@@ -89,7 +89,7 @@ class ActionDeletePagePermanently extends FormAction {
 		$id = $title->getArticleID();
 		$cats = $title->getParentCategories();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
 		$dbw->startAtomic( __METHOD__ );
 
