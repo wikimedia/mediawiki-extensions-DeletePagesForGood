@@ -134,17 +134,22 @@ class ActionDeletePagePermanently extends FormAction {
 			$dbw->fieldExists( 'revision', 'rev_text_id', __METHOD__ )
 		) {
 			# Read text entries for all revisions and delete them.
-			$res = $dbw->select( 'revision', 'rev_text_id', "rev_page=$id" );
+			$res = $dbw->select( 'revision', 'rev_text_id', "rev_page=$id", __METHOD__ );
 			foreach ( $res as $row ) {
 				$value = $row->rev_text_id;
 				$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
 			}
 
 			# Read text entries for all archived pages and delete them.
-			$arRes = $dbw->select( 'archive', 'ar_text_id', [
-				'ar_namespace' => $ns,
-				'ar_title' => $t
-			] );
+			$arRes = $dbw->select(
+				'archive',
+				'ar_text_id',
+				[
+					'ar_namespace' => $ns,
+					'ar_title' => $t
+				],
+				__METHOD__
+			);
 			foreach ( $arRes as $arRow ) {
 				$value = $arRow->ar_text_id;
 				$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
@@ -371,7 +376,8 @@ class ActionDeletePagePermanently extends FormAction {
 			[
 				'slot_content_id' => $contentId,
 				"slot_revision_id != $revId"
-			]
+			],
+			__METHOD__
 		);
 		return $count == 0;
 	}
