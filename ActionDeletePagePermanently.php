@@ -2,6 +2,7 @@
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Status\Status;
 use MediaWiki\Storage\BlobStore;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -88,10 +89,12 @@ class ActionDeletePagePermanently extends FormAction {
 		$t = $title->getDBkey();
 		$id = $title->getArticleID();
 		$cats = $title->getParentCategories();
+		$user = $this->getContext()->getUser();
+		$reason = 'Page being permanently deleted';
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
 
-		$dbw->startAtomic( __METHOD__ );
+		$dbw->startAtomic( __METHOD__, $dbw::ATOMIC_CANCELABLE );
 
 		/*
 		 * First delete entries, which are in direct relation with the page:
@@ -261,52 +264,42 @@ class ActionDeletePagePermanently extends FormAction {
 		 * If an image is being deleted, some extra work needs to be done
 		 */
 		if ( $ns == NS_FILE ) {
-			if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
-				// MediaWiki 1.34+
-				$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $t );
-			} else {
-				$file = wfFindFile( $t );
-			}
+			$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $t );
 
 			if ( $file ) {
-				# Get all filenames of old versions:
-				$fields = OldLocalFile::selectFields();
-				$res = $dbw->select( 'oldimage', $fields, [ 'oi_name' => $t ] );
+				$repo = $file->getRepo();
+				try {
+					$status = $file->deleteFile( $reason, $user );
+				} catch ( \LogicException $e ) {
+					# non-writable repo, continue
+					$status = Status::newGood();
+				}
+				if ( !$status->isOK() ) {
+					$dbw->cancelAtomic( __METHOD__ );
+					return false;
+				}
 
+				// Similar to LocalFileRestoreBatch::cleanup()
+				$deletedFiles = [];
+				$res = $dbw->select( 'filearchive', 'fa_storage_key', [ 'fa_name' => $t ], __METHOD__ );
 				foreach ( $res as $row ) {
-					$oldLocalFile = OldLocalFile::newFromRow( $row, $file->repo );
-					$path = $oldLocalFile->getArchivePath() . '/' . $oldLocalFile->getArchiveName();
-
-					try {
-						unlink( $path );
-					} catch ( Exception $e ) {
-						return $e->getMessage();
+					$fileKey = $row->fa_storage_key;
+					$filePath = $repo->getVirtualUrl( 'deleted' ) . '/' .
+						rawurlencode( $repo->getDeletedHashPath( $fileKey ) . $fileKey );
+					if ( $repo->fileExists( $filePath ) ) {
+						$deletedFiles[] = $fileKey;
 					}
 				}
 
-				$path = $file->getLocalRefPath();
+				# Clean the filearchive for the given filename:
+				$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
 
 				try {
-					$file->purgeThumbnails();
-					unlink( $path );
-				} catch ( Exception $e ) {
-					return $e->getMessage();
+					$repo->cleanupDeletedBatch( $deletedFiles );
+				} catch ( \LogicException $e ) {
+					# non-writable repo, continue
 				}
 			}
-
-			# Clean the filearchive for the given filename:
-			$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
-
-			# Delete old db entries of the image:
-			$dbw->delete( 'oldimage', [ 'oi_name' => $t ], __METHOD__ );
-
-			# Delete archive entries of the image:
-			$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
-
-			# Delete image entry:
-			$dbw->delete( 'image', [ 'img_name' => $t ], __METHOD__ );
-
-			// $dbw->endAtomic( __METHOD__ );
 
 			$linkCache = MediaWikiServices::getInstance()->getLinkCache();
 			$linkCache->clear();
