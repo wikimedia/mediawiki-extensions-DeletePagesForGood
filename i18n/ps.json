@@ -1,11 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
+	"deletepagesforgood-extensionname": "ښه‌والي‌لپاره‌د‌مخونو‌ړنگول",
+	"deletepagesforgood-desc": "هر مخ ته د نوې ړنگولو ريښکې په وسيله کارنانو ته اجازه ورکوي چې له اومتوک‌اډانې نه مخونه د تل لپاره ړنگ کړي",
+	"deletepagesforgood-deletepagetitle": "\"$1\" د تل لپاره ړنگول",
 	"deletepagesforgood-delete_permanently": "مخ د تل لپاره ړنگول",
 	"deletepagesforgood-del_impossible": "دا مخ د تل لپاره نه شي ړنگېدلی",
+	"deletepagesforgood-ask_deletion": "ايا تاسو ډاډه ياست چې ډامخ د تل لپاره ړنگوئ؟\nټولې بل‌بڼې او د ننوتلو يادښتونه به ړنگ شي. له بشپړېدو وروسته د دې چارې د بېرته راگرځولو هيڅ شونتيا نشته.",
 	"deletepagesforgood-yes": "هو",
 	"deletepagesforgood-del_done": "دا مخ د تل لپاره ړنگ شوی.",
 	"right-deleteperm": "مخونه د تل لپاره ړنگول",
