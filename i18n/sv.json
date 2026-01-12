@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Josve05a"
+			"Josve05a",
+			"Stefan2255"
 		]
 	},
-	"deletepagesforgood-yes": "Ja"
+	"deletepagesforgood-desc": "Tillåter användare att permanent ta bort sidor från databasen genom att lägga till en ny borttagningsflik på varje sida.",
+	"deletepagesforgood-deletepagetitle": "Ta bort \"$1\" permanent",
+	"deletepagesforgood-delete_permanently": "Ta bort sidan permanent",
+	"deletepagesforgood-del_impossible": "Den här sidan kan inte raderas permanent",
+	"deletepagesforgood-ask_deletion": "Är du säker på att du vill ta bort den här sidan permanent? Alla versioner och loggposter kommer att raderas. Det finns ingen möjlighet att ångra processen efter att den är klar.",
+	"deletepagesforgood-yes": "Ja",
+	"deletepagesforgood-del_done": "Sidan har tagits bort permanent.",
+	"right-deleteperm": "Ta bort sidor permanent",
+	"action-deleteperm": "ta bort sidor permanent"
 }
