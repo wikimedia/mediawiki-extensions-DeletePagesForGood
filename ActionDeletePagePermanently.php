@@ -90,7 +90,7 @@ class ActionDeletePagePermanently extends FormAction {
 		$t = $title->getDBkey();
 		$id = $title->getArticleID();
 		$user = $this->getContext()->getUser();
-		$reason = 'Page being permanently deleted';
+		$reason = $this->msg( 'deletepagesforgood-log-comment' )->text();
 		$error = null;
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );

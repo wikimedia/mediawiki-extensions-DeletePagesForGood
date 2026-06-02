@@ -5,6 +5,7 @@
 			"Purodha",
 			"Raymond",
 			"Robby",
+			"Seb35",
 			"Umherirrender",
 			"Vlad5250"
 		]
@@ -17,6 +18,7 @@
 	"deletepagesforgood-ask_deletion": "This message is giving you a warning before you continue and says are you sure you want to continue deleting this page permanently.",
 	"deletepagesforgood-yes": "{{Identical|Yes}}",
 	"deletepagesforgood-del_done": "This message says that the page was successfully deleted permanently.",
+	"deletepagesforgood-log-comment": "Comment in the log about permanent deletion of the page",
 	"right-deleteperm": "{{doc-right|deleteperm}}",
 	"action-deleteperm": "{{doc-action|deleteperm}}"
 }
