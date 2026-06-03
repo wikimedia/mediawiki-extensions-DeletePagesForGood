@@ -12,6 +12,7 @@
 	"deletepagesforgood-ask_deletion": "Bist du sicher, dass du diese Seite dauerhaft löschen möchtest? Alle Versionen und Logbucheinträge werden gelöscht. Es gibt keine Möglichkeit, diesen Prozess rückgängig zu machen, wenn dieser abgeschlossen ist.",
 	"deletepagesforgood-yes": "Ja",
 	"deletepagesforgood-del_done": "Die Seite wurde dauerhaft gelöscht.",
+	"deletepagesforgood-log-comment": "Seite dauerhaft gelöscht",
 	"right-deleteperm": "Seiten dauerhaft löschen",
 	"action-deleteperm": "Seiten dauerhaft zu löschen"
 }
