@@ -12,6 +12,7 @@
 	"deletepagesforgood-ask_deletion": "Weet u zeker dat u deze pagina definitief wilt verwijderen? Alle versies en logboekregels worden verwijderd. Er is geen mogelijkheid om dit ongedaan te maken nadat het proces voltooid is.",
 	"deletepagesforgood-yes": "Ja",
 	"deletepagesforgood-del_done": "De pagina is definitief verwijderd.",
+	"deletepagesforgood-log-comment": "Pagina permanent verwijderd",
 	"right-deleteperm": "Pagina's definitief verwijderen",
 	"action-deleteperm": "pagina's definitief te verwijderen"
 }
