@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"deletepagesforgood-desc": "Erlaabt et Benotzer fir Säiten definitiv aus der Datebank ze läschen an deem en neie Läsch-Tab op all Säit dobäigesat gëtt",
@@ -11,6 +12,7 @@
 	"deletepagesforgood-ask_deletion": "Sidd Dir sécher datt Dir dës Säit definitiv läsche wëllt? All Versiounen a Rubriken an de Logbicher gi geläscht. Et ass net méiglech dës Operatioun réckgängeg ze maachen.",
 	"deletepagesforgood-yes": "Jo",
 	"deletepagesforgood-del_done": "D'Säit gouf permanent geläscht.",
+	"deletepagesforgood-log-comment": "Säit dauerhaft geläscht",
 	"right-deleteperm": "Säite permanent läschen",
 	"action-deleteperm": "Säite permanent läschen"
 }
