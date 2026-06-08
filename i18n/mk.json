@@ -12,6 +12,7 @@
 	"deletepagesforgood-ask_deletion": "Дали сте сигурни дека сакате трајно да ја избришете страницава? Ќе се избришат сите преработки и дневничките ставки. Постапката е неповратна.",
 	"deletepagesforgood-yes": "Да",
 	"deletepagesforgood-del_done": "Страницата е трајно избришана.",
+	"deletepagesforgood-log-comment": "Страница трајно избришана",
 	"right-deleteperm": "Трајно бришење на страници",
 	"action-deleteperm": "трајно бришење на страници"
 }
