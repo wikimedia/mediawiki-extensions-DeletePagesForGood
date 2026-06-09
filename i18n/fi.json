@@ -3,7 +3,8 @@
 		"authors": [
 			"01miki10",
 			"Valtlai",
-			"Valtlait"
+			"Valtlait",
+			"Wikipeedikko"
 		]
 	},
 	"deletepagesforgood-desc": "Sallii käyttäjien poistaa sivuja pysyvästi tietokannasta lisäämällä uuden poistovälilehden jokaiselle sivulle.",
@@ -13,6 +14,7 @@
 	"deletepagesforgood-ask_deletion": "Oletko varma, että haluat poistaa sivun pysyvästi? Kaikki versiot ja lokitiedot poistetaan. Toimenpidettä ei voi kumota sen päätyttyä.",
 	"deletepagesforgood-yes": "Kyllä",
 	"deletepagesforgood-del_done": "Sivu on poistettu pysyvästi.",
+	"deletepagesforgood-log-comment": "Sivu on poistettu pysyvästi",
 	"right-deleteperm": "Poistaa sivuja pysyvästi",
 	"action-deleteperm": "poistaa sivuja pysyvästi"
 }
