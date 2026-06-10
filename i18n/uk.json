@@ -4,17 +4,18 @@
 			"DDPAT",
 			"Dars",
 			"Ice bulldog",
-			"Piramidion"
+			"Piramidion",
+			"Movses"
 		]
 	},
 	"deletepagesforgood-extensionname": "DeletePagesForGood",
 	"deletepagesforgood-desc": "Дозволить користувачам повністю видаляти сторінки з бази даних, шляхом додавання нової вкладки видалення для кожної сторінки.",
-	"deletepagesforgood-deletepagetitle": "Остаточно вилучити «$1»",
+	"deletepagesforgood-deletepagetitle": "Назавжди видалити «$1»",
 	"deletepagesforgood-delete_permanently": "Видалити сторінку назавжди",
 	"deletepagesforgood-del_impossible": "Цю сторінку неможливо видалити без можливості відновлення",
 	"deletepagesforgood-ask_deletion": "Ви впевнені, що хочете видалити цю сторінку назавжди? Всі версії і записи в журналі будуть видалені. Після завершення неможливо буде скасувати цю процедуру.",
 	"deletepagesforgood-yes": "Так",
-	"deletepagesforgood-del_done": "Сторінку було остаточно вилучено.",
+	"deletepagesforgood-del_done": "Сторінку було видалено назавжди.",
 	"right-deleteperm": "Видалення сторінок назавжди",
 	"action-deleteperm": "видалення сторінок назавжди"
 }
