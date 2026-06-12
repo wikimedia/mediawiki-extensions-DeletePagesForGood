@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"deletepagesforgood-desc": "Permitir ós usuarios borrar páxinas da base de datos permanentemente, engadindo unha nova lapela borrar en cada páxina.",
