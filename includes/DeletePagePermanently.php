@@ -1,0 +1,254 @@
+<?php
+
+namespace MediaWiki\Extension\DeletePagesForGood;
+
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Status\Status;
+use MediaWiki\Storage\BlobStore;
+use MediaWiki\Title\Title;
+use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IDatabase;
+
+class DeletePagePermanently {
+
+	/**
+	 * @param Title $title
+	 * @return bool
+	 */
+	public function canDeleteTitle( Title $title ) {
+		global $wgDeletePagesForGoodNamespaces;
+
+		if ( $title->exists() && $title->getArticleID() !== 0 &&
+			$title->getDBkey() !== '' &&
+			$title->getNamespace() !== NS_SPECIAL &&
+			isset( $wgDeletePagesForGoodNamespaces[ $title->getNamespace() ] ) &&
+			$wgDeletePagesForGoodNamespaces[ $title->getNamespace() ]
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * @param Title $title
+	 * @param UserIdentity $user
+	 * @param string $reason
+	 * @return bool|string
+	 */
+	public function deletePermanently( Title $title, UserIdentity $user, string $reason = '' ) {
+		$ns = $title->getNamespace();
+		$t = $title->getDBkey();
+		$id = $title->getArticleID();
+		$error = null;
+
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+
+		$dbw->startAtomic( __METHOD__, $dbw::ATOMIC_CANCELABLE );
+
+		/*
+		 * First, delete the page normally:
+		 */
+		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromID( $id );
+		$page->doDeleteArticleReal( $reason, $user, false, null, $error, null, [], 'delete', true );
+
+		// $wgMultiContentRevisionSchemaMigrationStage existed between 1.32 (included) and 1.39 (excluded)
+		$mcrSchemaMigrationStage = isset( $GLOBALS['wgMultiContentRevisionSchemaMigrationStage'] )
+			? $GLOBALS['wgMultiContentRevisionSchemaMigrationStage']
+			: 0;
+
+		// Before 1.32, archive.ar_text_id existed, but $mcrSchemaMigrationStage === 0
+		if ( ( $mcrSchemaMigrationStage & SCHEMA_COMPAT_WRITE_OLD ) ||
+			$dbw->fieldExists( 'archive', 'ar_text_id', __METHOD__ )
+		) {
+			# Read text entries for all archived pages and delete them.
+			$arRes = $dbw->select(
+				'archive',
+				'ar_text_id',
+				[
+					'ar_namespace' => $ns,
+					'ar_title' => $t
+				],
+				__METHOD__
+			);
+			foreach ( $arRes as $arRow ) {
+				$value = $arRow->ar_text_id;
+				$dbw->delete( 'text', [ 'old_id' => $value ], __METHOD__ );
+			}
+		}
+
+		// From 1.35, archive.ar_text_id does not exist, and from 1.39 $mcrSchemaMigrationStage === 0
+		if ( ( $mcrSchemaMigrationStage & SCHEMA_COMPAT_WRITE_NEW ) ||
+			!$dbw->fieldExists( 'archive', 'ar_text_id', __METHOD__ )
+		) {
+			# Delete slot, content, and text entries for all revisions.
+			$revisionStore = MediaWikiServices::getInstance()->getRevisionStore();
+			$blobStore = MediaWikiServices::getInstance()->getBlobStore();
+
+			$arRevQuery = $revisionStore->getArchiveQueryInfo();
+			$arRes = $dbw->select(
+				$arRevQuery['tables'],
+				$arRevQuery['fields'],
+				[
+					'ar_namespace' => $ns,
+					'ar_title' => $t
+				],
+				__METHOD__,
+				[],
+				$arRevQuery['joins']
+			);
+			foreach ( $arRes as $arRow ) {
+				$rev = $revisionStore->newRevisionFromArchiveRow( $arRow );
+				$this->deleteSlotsPermanently( $dbw,
+					$rev->getSlots()->getSlots(),
+					$rev->getId(),
+					$blobStore
+				);
+			}
+		}
+
+		/*
+		 * then delete entries which are not in direct relation with the page:
+		 */
+
+		# Clean up recentchanges entries...
+		$dbw->delete( 'recentchanges', [
+			'rc_namespace' => $ns,
+			'rc_title' => $t
+		], __METHOD__ );
+
+		# Clean up archive entries...
+		$dbw->delete( 'archive', [
+			'ar_namespace' => $ns,
+			'ar_title' => $t
+		], __METHOD__ );
+
+		# Clean up log entries...
+		$dbw->delete( 'logging', [
+			'log_namespace' => $ns,
+			'log_title' => $t
+		], __METHOD__ );
+
+		# Clean up watchlist...
+		$dbw->delete( 'watchlist', [
+			'wl_namespace' => $ns,
+			'wl_title' => $t
+		], __METHOD__ );
+
+		$dbw->delete( 'watchlist', [
+			'wl_namespace' => MediaWikiServices::getInstance()
+				->getNamespaceInfo()
+				->getAssociated( $ns ),
+			'wl_title' => $t
+		], __METHOD__ );
+
+		/*
+		 * If an image is being deleted, clean the filearchive
+		 */
+		if ( $ns == NS_FILE ) {
+			$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( $t );
+
+			if ( $file ) {
+				$repo = $file->getRepo();
+				try {
+					$status = $file->deleteFile( $reason, $user );
+				} catch ( \LogicException $e ) {
+					# non-writable repo, continue
+					$status = Status::newGood();
+				}
+				if ( !$status->isOK() ) {
+					$dbw->cancelAtomic( __METHOD__ );
+					return false;
+				}
+
+				// Similar to LocalFileRestoreBatch::cleanup()
+				$deletedFiles = [];
+				$res = $dbw->select( 'filearchive', 'fa_storage_key', [ 'fa_name' => $t ], __METHOD__ );
+				foreach ( $res as $row ) {
+					$fileKey = $row->fa_storage_key;
+					$filePath = $repo->getVirtualUrl( 'deleted' ) . '/' .
+						rawurlencode( $repo->getDeletedHashPath( $fileKey ) . $fileKey );
+					if ( $repo->fileExists( $filePath ) ) {
+						$deletedFiles[] = $fileKey;
+					}
+				}
+
+				# Clean the filearchive for the given filename:
+				$dbw->delete( 'filearchive', [ 'fa_name' => $t ], __METHOD__ );
+
+				try {
+					$repo->cleanupDeletedBatch( $deletedFiles );
+				} catch ( \LogicException $e ) {
+					# non-writable repo, continue
+				}
+			}
+
+			$linkCache = MediaWikiServices::getInstance()->getLinkCache();
+			$linkCache->clear();
+		}
+		$dbw->endAtomic( __METHOD__ );
+		return true;
+	}
+
+	/**
+	 * In MCR schema, delete the slots corresponding to some revision.
+	 *
+	 * @param IDatabase $dbw Database handle
+	 * @param SlotRecord[] $slots Slots
+	 * @param int $revId Revision ID
+	 * @param BlobStore $blobStore MediaWiki service BlobStore
+	 * @return bool true if the content can be deleted, false otherwise
+	 */
+	protected function deleteSlotsPermanently( $dbw, $slots, $revId, $blobStore ) {
+		foreach ( $slots as $role => $slot ) {
+			if ( $this->shouldDeleteContent( $dbw, $revId, $slot->getContentId() ) ) {
+				$textId = $blobStore->getTextIdFromAddress( $slot->getAddress() );
+				if ( $textId ) {
+					$dbw->delete( 'text', [ 'old_id' => $textId ], __METHOD__ );
+				}
+				$dbw->delete( 'content',
+					[ 'content_id' => $slot->getContentId() ],
+					__METHOD__
+				);
+			}
+		}
+
+		// This may orphan content types other than text
+		$dbw->delete( 'slots',
+			[ 'slot_revision_id' => $revId ],
+			__METHOD__
+		);
+	}
+
+	/**
+	 * Determines if a particular piece of content should be deleted. Deleting requires querying
+	 * if the content is used in any other revisions. This can be slow, and the caller will have
+	 * a transaction open on the master database. Setting $wgDeletePagesForGoodDeleteContent to
+	 * false is faster, because it skips the query and leaves the content alone. But it leaves
+	 * orphaned content in storage.
+	 *
+	 * @param IDatabase $dbw Database handle
+	 * @param int $revId Revision ID
+	 * @param int $contentId Content ID to consider
+	 * @return bool true if the content can be deleted, false otherwise
+	 */
+	protected function shouldDeleteContent( $dbw, $revId, $contentId ) {
+		global $wgDeletePagesForGoodDeleteContent;
+
+		if ( !$wgDeletePagesForGoodDeleteContent ) {
+			return false;
+		}
+
+		$count = $dbw->selectRowCount(
+			'slots',
+			'*',
+			[
+				'slot_content_id' => $contentId,
+				"slot_revision_id != $revId"
+			],
+			__METHOD__
+		);
+		return $count == 0;
+	}
+}
