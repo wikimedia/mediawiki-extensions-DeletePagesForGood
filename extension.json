@@ -29,7 +29,7 @@
 		}
 	},
 	"Actions": {
-		"delete_page_permanently": "ActionDeletePagePermanently"
+		"delete_page_permanently": "MediaWiki\\Extension\\DeletePagesForGood\\ActionDeletePagePermanently"
 	},
 	"AvailableRights": [
 		"deleteperm"
@@ -40,10 +40,10 @@
 		]
 	},
 	"Hooks": {
-		"SkinTemplateNavigation::Universal": "ActionDeletePagePermanently::onAddSkinHook"
+		"SkinTemplateNavigation::Universal": "MediaWiki\\Extension\\DeletePagesForGood\\ActionDeletePagePermanently::onAddSkinHook"
 	},
-	"AutoloadClasses": {
-		"ActionDeletePagePermanently": "ActionDeletePagePermanently.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DeletePagesForGood\\": "includes/"
 	},
 	"config": {
 		"DeletePagesForGoodNamespaces": {

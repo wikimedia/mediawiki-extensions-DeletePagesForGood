@@ -1,7 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\DeletePagesForGood;
+
+use MediaWiki\Actions\FormAction;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Status\Status;
 use MediaWiki\Storage\BlobStore;
 use MediaWiki\Title\Title;
