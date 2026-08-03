@@ -17,6 +17,7 @@
 	"deletepagesforgood-ask_deletion": "Êtes-vous sûr{{GENDER:||e}} de vouloir supprimer définitivement cette page ? Toutes les versions et toutes les entrées de journal seront supprimées. Une fois cette opération terminée, il n’y aura aucune chance de l’annuler.",
 	"deletepagesforgood-yes": "Oui",
 	"deletepagesforgood-del_done": "La page a été supprimée définitivement.",
+	"deletepagesforgood-log-comment": "Page supprimée définitivement",
 	"right-deleteperm": "Supprimer des pages définitivement",
 	"action-deleteperm": "supprimer des pages définitivement"
 }
