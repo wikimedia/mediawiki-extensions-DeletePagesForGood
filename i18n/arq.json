@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hussam"
+			"Hussam",
+			"Bachounda"
 		]
 	},
-	"deletepagesforgood-yes": "واه"
+	"deletepagesforgood-desc": "يسمح للمستخدمين بحذف الصفحات نهائياً من قاعدة البيانات بإضافة علامة تبويب حذف جديدة لكل صفحة.",
+	"deletepagesforgood-deletepagetitle": "حذف \"$1\" نهائيا",
+	"deletepagesforgood-delete_permanently": "حذف الصفحة بشكل دائم",
+	"deletepagesforgood-del_impossible": "هاد الصفحة ما تقدرش تتحذف نهائياً.",
+	"deletepagesforgood-ask_deletion": "واش أنت متأكد بلي حابب تحذف هاد الصفحة نهائياً؟ جميع النسخ ومدخلات السجل راح يتحذفو. ماكاينش مجال للتراجع عن هاد العملية مورا ما تكمل.",
+	"deletepagesforgood-yes": "إيه",
+	"deletepagesforgood-del_done": "الصفحة تحذفات نهائياً.",
+	"right-deleteperm": "احذف الصفحات نهائياً.",
+	"action-deleteperm": "احذف الصفحات نهائياً."
 }
