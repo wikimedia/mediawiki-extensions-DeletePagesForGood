@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"deletepagesforgood-desc": "Umožňuje používateľom natrvalo mazať stránky z databázy pridaním novej karty na mazanie na každú stránku",
+	"deletepagesforgood-deletepagetitle": "Natrvalo zmazať „$1“",
+	"deletepagesforgood-delete_permanently": "Zmazať stránku natrvalo",
+	"deletepagesforgood-del_impossible": "Túto stránku nemožno zmazať natrvalo",
+	"deletepagesforgood-ask_deletion": "Naozaj chcete túto stránku zmazať natrvalo? Zmažú sa všetky verzie aj položky záznamu. Po dokončení sa to už nedá vrátiť späť.",
+	"deletepagesforgood-yes": "Áno",
+	"deletepagesforgood-del_done": "Stránka bola natrvalo zmazaná.",
+	"deletepagesforgood-log-comment": "Stránka natrvalo zmazaná",
+	"right-deleteperm": "Mazať stránky natrvalo",
+	"action-deleteperm": "mazať stránky natrvalo"
+}
