@@ -13,6 +13,7 @@
 	"deletepagesforgood-ask_deletion": "ايا تاسو ډاډه ياست چې ډامخ د تل لپاره ړنگوئ؟\nټولې بل‌بڼې او د ننوتلو يادښتونه به ړنگ شي. له بشپړېدو وروسته د دې چارې د بېرته راگرځولو هيڅ شونتيا نشته.",
 	"deletepagesforgood-yes": "هو",
 	"deletepagesforgood-del_done": "دا مخ د تل لپاره ړنگ شوی.",
+	"deletepagesforgood-log-comment": "مخ د تل لپاره ړنگ شو",
 	"right-deleteperm": "مخونه د تل لپاره ړنگول",
 	"action-deleteperm": "مخونه د تل لپاره ړنگول"
 }
